@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1618180514 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\main.cpp
+	"graphics.hpp"
+
+1618178770 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\include\graphics.hpp
+	<string>
+	<vector>
+
+1715544259 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.cpp
+	<fstream>
+	<iostream>
+	"imageLoader.hpp"
+
+1715544260 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.hpp
+	"graphics.hpp"
+	"helpers.hpp"
+
+1715543658 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\helpers.hpp
+
