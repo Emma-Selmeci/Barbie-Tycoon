@@ -10,7 +10,7 @@ ImageLoader::ImageLoader(std::string path, Vec2 pos) : pos(pos) {
     std::string input;
 
     if(!fin.is_open()) {
-        std::cout << "File open is not succesful!";
+        std::cout << "Opening of file at " << path << " not successful!";
         exit(1);
     }
 
@@ -54,4 +54,8 @@ void ImageLoader::draw(Vec2 newPos) {
 
 void ImageLoader::draw() {
     gout << stamp(c,pos.x,pos.y);
+}
+
+void ImageLoader::setTransparent(bool transparent) { //I've created this method. I'm transgender. Am I this class's trans parent?
+    c.transparent(transparent);
 }

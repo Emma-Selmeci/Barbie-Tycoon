@@ -7,6 +7,8 @@
 
 using namespace genv;
 
+//A very simple .kep loader class
+
 class ImageLoader {
 private:
     Vec2 pos;
@@ -19,6 +21,7 @@ public:
     void setPos(Vec2 newPos);
     void draw();
     void draw(Vec2 newPos);
+    void setTransparent(bool);
 };
 
 #endif // IMAGELOADER

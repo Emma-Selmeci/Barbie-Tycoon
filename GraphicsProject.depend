@@ -1,19 +1,62 @@
 # depslib dependency file v1.0
-1618180514 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\main.cpp
+1715545894 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\main.cpp
 	"graphics.hpp"
+	"imageLoader.hpp"
+	"mainMenu.hpp"
 
 1618178770 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\include\graphics.hpp
 	<string>
 	<vector>
 
-1715544259 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.cpp
+1715547996 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.cpp
 	<fstream>
 	<iostream>
 	"imageLoader.hpp"
 
-1715544260 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.hpp
+1715546143 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\imageloader.hpp
 	"graphics.hpp"
 	"helpers.hpp"
 
-1715543658 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\helpers.hpp
+1715546612 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\helpers.hpp
+
+1715603512 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainmenu.cpp
+	<iostream>
+	"mainMenu.hpp"
+	"helpers.hpp"
+	"mainScreen.hpp"
+
+1715597058 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainmenu.hpp
+	"graphics.hpp"
+	"imageLoader.hpp"
+
+1715547971 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\helpers.cpp
+	<iostream>
+	"helpers.hpp"
+
+1715605369 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
+	<iostream>
+	"mainScreen.hpp"
+	"colors.hpp"
+	"graphicsHelper.hpp"
+
+1715606661 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.hpp
+	"graphics.hpp"
+	"mapPanel.hpp"
+	"colors.hpp"
+	"graphicsHelper.hpp"
+
+1715603011 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.hpp
+	"imageLoader.hpp"
+
+1715603256 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.cpp
+	"mapPanel.hpp"
+
+1715604311 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
+
+1715609166 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.cpp
+	"graphics.hpp"
+	"graphicsHelper.hpp"
+
+1715604899 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.hpp
+	"helpers.hpp"
 

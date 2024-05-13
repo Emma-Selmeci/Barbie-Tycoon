@@ -51,7 +51,15 @@
 			<Add library="dxguid" />
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="helpers.cpp" />
+		<Unit filename="helpers.hpp" />
+		<Unit filename="imageLoader.cpp" />
+		<Unit filename="imageLoader.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mainMenu.cpp" />
+		<Unit filename="mainMenu.hpp" />
+		<Unit filename="mainScreen.cpp" />
+		<Unit filename="mainScreen.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
