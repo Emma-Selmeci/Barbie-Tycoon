@@ -33,25 +33,28 @@
 	<iostream>
 	"helpers.hpp"
 
-1715605369 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
+1715791548 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
 	<iostream>
 	"mainScreen.hpp"
-	"colors.hpp"
-	"graphicsHelper.hpp"
+	"rightPanel.hpp"
 
-1715606661 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.hpp
+1715787697 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.hpp
 	"graphics.hpp"
 	"mapPanel.hpp"
 	"colors.hpp"
 	"graphicsHelper.hpp"
+	"messagePanel.hpp"
 
-1715603011 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.hpp
+1715627042 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.hpp
 	"imageLoader.hpp"
 
-1715603256 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.cpp
+1715627084 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.cpp
+	<iostream>
 	"mapPanel.hpp"
+	"colors.hpp"
+	"graphicsHelper.hpp"
 
-1715604311 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
+1715611336 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
 
 1715609166 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.cpp
 	"graphics.hpp"
@@ -59,4 +62,29 @@
 
 1715604899 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.hpp
 	"helpers.hpp"
+
+1715791507 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.cpp
+	"rightPanel.hpp"
+	"graphics.hpp"
+
+1715787585 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.hpp
+	"city.hpp"
+	"helpers.hpp"
+
+1715782735 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.hpp
+	"imageLoader.hpp"
+	"helpers.hpp"
+
+1715788761 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.cpp
+	"messagePanel.hpp"
+	<iostream>
+	"graphics.hpp"
+	"graphicsHelper.hpp"
+	"colors.hpp"
+
+1715790921 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\city.cpp
+	"city.hpp"
+
+1715791450 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\city.hpp
+	<string>
 

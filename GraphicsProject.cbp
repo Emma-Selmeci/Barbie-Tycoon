@@ -51,6 +51,11 @@
 			<Add library="dxguid" />
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="city.cpp" />
+		<Unit filename="city.hpp" />
+		<Unit filename="colors.hpp" />
+		<Unit filename="graphicsHelper.cpp" />
+		<Unit filename="graphicsHelper.hpp" />
 		<Unit filename="helpers.cpp" />
 		<Unit filename="helpers.hpp" />
 		<Unit filename="imageLoader.cpp" />
@@ -60,6 +65,12 @@
 		<Unit filename="mainMenu.hpp" />
 		<Unit filename="mainScreen.cpp" />
 		<Unit filename="mainScreen.hpp" />
+		<Unit filename="mapPanel.cpp" />
+		<Unit filename="mapPanel.hpp" />
+		<Unit filename="messagePanel.cpp" />
+		<Unit filename="messagePanel.hpp" />
+		<Unit filename="rightPanel.cpp" />
+		<Unit filename="rightPanel.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
