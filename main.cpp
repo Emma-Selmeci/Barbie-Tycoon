@@ -1,10 +1,11 @@
+#include <iostream>
+
 #include "graphics.hpp"
 
 #include "imageLoader.hpp"
 #include "mainMenu.hpp"
 
 using namespace genv;
-
 
 int main()
 {

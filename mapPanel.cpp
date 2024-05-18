@@ -3,6 +3,7 @@
 #include "mapPanel.hpp"
 #include "colors.hpp"
 #include "graphicsHelper.hpp"
+#include "rightPanel.hpp"
 
 
 CityButton::CityButton(std::string name, Vec2 pos) : name(name), pos(pos), stringPos({pos.x+30-gout.twidth(name)/2,pos.y+32}) {
@@ -38,4 +39,14 @@ void MapPanel::draw() {
 
     hunMap.draw();
     for(CityButton& c : cityButtons) c.draw();
+}
+
+void MapPanel::update(event& ev) {
+    if(!(ev.type == ev_mouse && ev.button == 1)) return;
+    for(int i = 0; i < 10; i++) { //I miss .length() for primitive arrays from Java
+        if(isInRect({ev.pos_x,ev.pos_y},{cityButtons[i].pos.x,cityButtons[i].pos.y},{cityButtons[i].pos.x+30,cityButtons[i].pos.y+30})) {
+            RightPanel::setLoadedCity(i);
+            return;
+        }
+    }
 }

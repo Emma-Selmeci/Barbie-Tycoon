@@ -1,5 +1,6 @@
 # depslib dependency file v1.0
-1715545894 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\main.cpp
+1715939896 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\main.cpp
+	<iostream>
 	"graphics.hpp"
 	"imageLoader.hpp"
 	"mainMenu.hpp"
@@ -33,7 +34,7 @@
 	<iostream>
 	"helpers.hpp"
 
-1715791548 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
+1716017854 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
 	<iostream>
 	"mainScreen.hpp"
 	"rightPanel.hpp"
@@ -45,14 +46,15 @@
 	"graphicsHelper.hpp"
 	"messagePanel.hpp"
 
-1715627042 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.hpp
+1716017898 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.hpp
 	"imageLoader.hpp"
 
-1715627084 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.cpp
+1716018384 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mappanel.cpp
 	<iostream>
 	"mapPanel.hpp"
 	"colors.hpp"
 	"graphicsHelper.hpp"
+	"rightPanel.hpp"
 
 1715611336 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
 
@@ -63,13 +65,17 @@
 1715604899 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.hpp
 	"helpers.hpp"
 
-1715791507 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.cpp
+1716018326 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.cpp
 	"rightPanel.hpp"
+	<iostream>
 	"graphics.hpp"
+	"graphicsHelper.hpp"
+	"colors.hpp"
 
-1715787585 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.hpp
+1716017086 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\rightpanel.hpp
 	"city.hpp"
 	"helpers.hpp"
+	"imageLoader.hpp"
 
 1715782735 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.hpp
 	"imageLoader.hpp"

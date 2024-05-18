@@ -26,7 +26,10 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
 void MainScreen::eventLoop(event& ev) {
     loadMessages(ev);
     while(gin >> ev) {
-
+        mapPanel.update(ev);
+        RightPanel::update(ev);
+        RightPanel::draw();
+        gout << refresh;
     }
 }
 

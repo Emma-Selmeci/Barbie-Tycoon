@@ -3,6 +3,8 @@
 
 #include "imageLoader.hpp"
 
+class MapPanel;
+
 class CityButton {
     std::string name;
     static ImageLoader cityIcon;
@@ -11,6 +13,7 @@ class CityButton {
 public:
     CityButton(std::string name, Vec2 pos);
     void draw();
+    friend class MapPanel;
 };
 
 class MapPanel {
@@ -20,6 +23,7 @@ class MapPanel {
 public:
     MapPanel(int x, int y);
     void draw();
+    void update(event&);
 };
 
 #endif // MAPPANEL
