@@ -2,8 +2,11 @@
 
 #include "mainScreen.hpp"
 #include "rightPanel.hpp"
+#include "gameManager.hpp"
+#include "staticData.hpp"
 
-const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightWidth = screenWidth-3*borderSize-mapWidth, rightHeight = screenHeight-2*borderSize;
+const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightHeight = screenHeight-2*borderSize;
+int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
 
 MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHeight) {
     drawBorders({GUIviolet},{GUIvioletLight},{GUIvioletDark});
@@ -15,6 +18,10 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
 
     RightPanel::setDim({borderSize*2+mapWidth,borderSize},{rightWidth,rightHeight});
     MessagePanel::setPos({borderSize,borderSize*2+textPanelHeight},{mapWidth,mapHeight});
+    StaticData::leftArrow.setTransparent(false);
+    StaticData::rightArrow.setTransparent(false);
+
+
     MessagePanel::draw();
     RightPanel::draw();
 
@@ -26,10 +33,14 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
 void MainScreen::eventLoop(event& ev) {
     loadMessages(ev);
     while(gin >> ev) {
-        mapPanel.update(ev);
-        RightPanel::update(ev);
-        RightPanel::draw();
-        gout << refresh;
+            if(ev.type == ev_timer) {
+                drawCurrency();
+                RightPanel::draw(); //We're calling this last due to font changes!
+                gout << refresh;
+            } else {
+                mapPanel.update(ev);
+                RightPanel::update(ev);
+            }
     }
 }
 
@@ -86,5 +97,7 @@ void MainScreen::drawTitle() {
 }
 
 void MainScreen::drawCurrency() {
-    gout <<  move_to(borderSize+5+mapWidth/2,borderSize+8) << text("You have $1000");
+    drawRect({borderSize+5+mapWidth/2,borderSize},{mapWidth/2,textPanelHeight},{lightPink});
+    std::string moneyMessage = "You have " + std::to_string(GameManager::money) + "$";
+    gout << color(0,0,0) << move_to(borderSize+5+mapWidth/2,borderSize+8) << text(moneyMessage);
 }

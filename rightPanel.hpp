@@ -4,6 +4,8 @@
 #include "city.hpp"
 #include "helpers.hpp"
 #include "imageLoader.hpp"
+#include "subPanel.hpp"
+#include "partsPanel.hpp"
 
 enum Mode {
     PRODUCTION,
@@ -22,6 +24,7 @@ class RightPanel {
     static Mode selectedMenu;
     static void selectMenu();
     static Mode intToMode(int);
+    static SubPanel** panels;
 public:
     static void setDim(Vec2, Vec2);
     static void draw();

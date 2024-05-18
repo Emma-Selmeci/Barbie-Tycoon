@@ -21,6 +21,7 @@ class MainScreen {
 
 public:
     MainScreen(event&);
+    static int rightWidth;
 };
 
 #endif // MAINSCREEN
