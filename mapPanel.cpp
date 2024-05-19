@@ -4,7 +4,7 @@
 #include "colors.hpp"
 #include "graphicsHelper.hpp"
 #include "rightPanel.hpp"
-
+#include "gameManager.hpp"
 
 CityButton::CityButton(std::string name, Vec2 pos) : name(name), pos(pos), stringPos({pos.x+30-gout.twidth(name)/2,pos.y+32}) {
 
@@ -36,9 +36,10 @@ MapPanel::MapPanel(int x, int y) : hunMap("textures/hunmap.kep"), cityButtons({
 }
 
 void MapPanel::draw() {
-
     hunMap.draw();
     for(CityButton& c : cityButtons) c.draw();
+    gout << move_to(500,450) << box(150,30) << color(255,255,255) << move_to(507,457) << text("Next Turn"); //Sorry for the magic numbers :((
+
 }
 
 void MapPanel::update(event& ev) {
@@ -48,5 +49,9 @@ void MapPanel::update(event& ev) {
             RightPanel::setLoadedCity(i);
             return;
         }
+    }
+    if(isInRect(ev.pos_x,ev.pos_y,500,450,650,480)) {
+            GameManager::nextTurn();
+            std::cout << "Next turn button pressed";
     }
 }

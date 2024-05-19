@@ -1,6 +1,8 @@
 #include "city.hpp"
 
-City::City(std::string cityName) : name(cityName) {}
+City::City(std::string cityName) : name(cityName) {
+
+}
 
 City City::cities[10] = {
     City("Gyor"),

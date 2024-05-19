@@ -8,6 +8,8 @@
 const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightHeight = screenHeight-2*borderSize;
 const int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
 
+bool MainScreen::loadFlag = false;
+
 MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHeight) {
     drawBorders({GUIviolet},{GUIvioletLight},{GUIvioletDark});
     drawBackground({lightPink});
@@ -31,6 +33,7 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
 void MainScreen::eventLoop(event& ev) {
     loadMessages(ev);
     while(gin >> ev) {
+            if(loadFlag) loadMessages(ev);
             if(ev.type == ev_timer) {
                 drawCurrency();
                 RightPanel::draw(); //We're calling this last due to font changes!
@@ -46,6 +49,7 @@ void MainScreen::loadMessages(event& ev) {
     MessagePanel::loadMessages(ev);
     mapPanel.draw();
     gout << refresh;
+    loadFlag = false;
 }
 
 void MainScreen::drawBorders(Color foreground, Color light, Color dark) { //Let's pretend we didn't see this

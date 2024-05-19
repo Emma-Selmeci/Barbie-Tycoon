@@ -6,6 +6,9 @@
 #include "graphicsHelper.hpp"
 #include "colors.hpp";
 #include "productionPanel.hpp"
+#include "workerPanel.hpp"
+#include "shipmentPanel.hpp"
+#include "researchPanel.hpp"
 
 using namespace genv;
 
@@ -35,15 +38,16 @@ ImageLoader RightPanel::menuImages[] = {
 
 SubPanel** RightPanel::panels = new SubPanel*[5] { //This works!
     new ProductionPanel(),
-    new ProductionPanel(),
+    new ShipmentPanel(),
     new PartsPanel(),
-    new ProductionPanel(),
-    new ProductionPanel(),
+    new WorkerPanel(),
+    new ResearchPanel(),
 };
 
 void RightPanel::setDim(Vec2 initialPos, Vec2 initialSize) {
     size = initialSize; pos = initialPos;
     SubPanel::setPos({pos.x,pos.y+70}); //I'm **VERY** surprised this works
+    City::cities[2].hasFactory = true;
     for(int i = 0; i < 5; i++) panels[i]->updatePos();
     int delta = (size.x - 5*30) / 6;
     for(int i = 0; i<5 ; i++) {
@@ -98,6 +102,7 @@ Mode RightPanel::intToMode(int i) {
 
 void RightPanel::setLoadedCity(int cityId) {
     loadedCity = &City::cities[cityId];
+    refresh();
     draw();
 }
 

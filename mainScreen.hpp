@@ -21,6 +21,7 @@ class MainScreen {
 
 public:
     MainScreen(event&);
+    static bool loadFlag;
     const static int rightWidth;
 };
 

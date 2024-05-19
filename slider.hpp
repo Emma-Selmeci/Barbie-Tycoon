@@ -17,6 +17,7 @@ public:
     bool check(event&) override;
     bool update(event&) override;
     int getValue();
+    void forceValue(int);
 };
 
 #endif // SLIDER

@@ -87,16 +87,23 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
 
 
     events.push_back({"This is a test event :)","I see",false,&advisorImage,[](){
-                     if(GameManager::turnCounter == 1) return true;
+                     if(GameManager::turnCounter == 1) return true; else return false;
                      },0,[](){
 
                      }});
 
     events.push_back({"This is a second message to see if everything's working. Also, this one is longer xd","שלום",true,&advisorImage,[](){
-                     if(GameManager::turnCounter == 1) return true;
+                     if(GameManager::turnCounter == 1) return true; else return false;
                      },0,[](){
 
                      }});
+
+    events.push_back({"It's the second turn","Wow, already?",false,&advisorImage,[](){
+                     if(GameManager::turnCounter == 2) return true; else return false;
+                     },0,[](){
+
+                     }});
+
 }
     MessagePanel::pos = initialPos;
     MessagePanel::size = initialSize;

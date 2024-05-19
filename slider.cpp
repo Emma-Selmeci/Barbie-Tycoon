@@ -55,6 +55,7 @@ bool Slider::check(event& ev) {
 }
 
 bool Slider::mouseClicked(event& ev) {
+    if(min == max) return false;
     if(isInRect(ev.pos_x,ev.pos_y,pos.x+5,pos.y,pos.x+35,pos.y+30)) {
         value--;
         boundValue();
@@ -89,3 +90,6 @@ bool Slider::update(event& ev) {
 }
 
 int Slider::getValue() {return value;}
+void Slider::forceValue(int newValue) {
+    value = newValue;
+}

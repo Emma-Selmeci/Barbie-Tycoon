@@ -7,6 +7,7 @@
 #include "city.hpp"
 #include "slider.hpp"
 #include "textWidget.hpp"
+#include "button.hpp"
 
 using namespace genv;
 
@@ -16,6 +17,9 @@ private:
     static Slider* sliderp;
     TextWidget storedParts;
     TextWidget arrivingParts;
+    TextWidget purchasePlease;
+    Button confirmButton;
+    TextWidget noFactoryButton;
     static void buttonPressed(int);
 public:
     PartsPanel();

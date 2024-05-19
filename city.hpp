@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "staticData.hpp"
+
 class RightPanel;
 
 class City {
@@ -13,6 +15,12 @@ public: //I'm leaving most of these public for easier access...
     friend class RightPanel;
     int storedParts = 0;
     int shippingParts = 0;
+    int producingDolls = 0;
+    int producedType = 0;
+    int storedDolls[5] = {
+        0,0,0,0,0
+    };
+    bool hasFactory = false;
 };
 
 #endif // CITY
