@@ -21,7 +21,7 @@ class MainScreen {
 
 public:
     MainScreen(event&);
-    static int rightWidth;
+    const static int rightWidth;
 };
 
 #endif // MAINSCREEN

@@ -30,6 +30,7 @@ public:
     static void draw();
     static void update(event&);
     static void setLoadedCity(int);
+    static void refresh();
 };
 
 #endif // RIGHTPANEL

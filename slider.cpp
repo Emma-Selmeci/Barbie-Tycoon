@@ -19,6 +19,7 @@ Slider::Slider(Vec2 pos, int min, int max) : Widget(pos),  min(min), max(max), v
 
 void Slider::resetValues(int newMin, int newMax) {
     min = newMin; max = newMax;
+    boundValue();
     //Recalibrate currentValue
     //Reset graphics
 }
@@ -31,10 +32,15 @@ void Slider::draw() {
     StaticData::rightArrow.draw({pos.x+width-35,pos.y});
     drawSpecialRect(pos.x+5,pos.y+35,width-10,10,GUIvioletDark,0,0,0);
 
-    int delta = max-min;
-    float absVal = value-min;
-    float variant = absVal/delta;
-    int sliderPos = pos.x+5+(width-10)*variant;
+    int sliderPos;
+    if(min == max) {
+        sliderPos = pos.x+5;
+    } else {
+        int delta = max-min;
+        float absVal = value-min;
+        float variant = absVal/delta;
+        sliderPos = pos.x+5+(width-10)*variant;
+    }
     drawSpecialRect(sliderPos-5,pos.y+30,10,20,GUIvioletDark,0,0,0);
 }
 
@@ -59,7 +65,7 @@ bool Slider::mouseClicked(event& ev) {
         boundValue();
         return false;
     }
-    if(isInRect(ev.pos_x,ev.pos_y,pos.x+5,pos.y+35,pos.x+width-5,pos.y+45)) {
+    if(isInRect(ev.pos_x,ev.pos_y,pos.x+5,pos.y+30,pos.x+width-5,pos.y+50)) {
         pressed = true;
         return true;
     }
@@ -81,3 +87,5 @@ bool Slider::update(event& ev) {
     }
     return false;
 }
+
+int Slider::getValue() {return value;}

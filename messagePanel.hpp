@@ -6,6 +6,8 @@
 
 //Trying my luck with an entirely static class this time!
 
+
+
 class MessagePanel {
     static ImageLoader advisorImage;
     static Vec2 pos;

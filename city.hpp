@@ -12,6 +12,7 @@ public: //I'm leaving most of these public for easier access...
     static City cities[10];
     friend class RightPanel;
     int storedParts = 0;
+    int shippingParts = 0;
 };
 
 #endif // CITY

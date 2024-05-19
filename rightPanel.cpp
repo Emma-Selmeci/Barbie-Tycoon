@@ -5,6 +5,7 @@
 #include "graphics.hpp"
 #include "graphicsHelper.hpp"
 #include "colors.hpp";
+#include "productionPanel.hpp"
 
 using namespace genv;
 
@@ -33,11 +34,11 @@ ImageLoader RightPanel::menuImages[] = {
 };
 
 SubPanel** RightPanel::panels = new SubPanel*[5] { //This works!
+    new ProductionPanel(),
+    new ProductionPanel(),
     new PartsPanel(),
-    new PartsPanel(),
-    new PartsPanel(),
-    new PartsPanel(),
-    new PartsPanel(),
+    new ProductionPanel(),
+    new ProductionPanel(),
 };
 
 void RightPanel::setDim(Vec2 initialPos, Vec2 initialSize) {
@@ -98,5 +99,8 @@ Mode RightPanel::intToMode(int i) {
 void RightPanel::setLoadedCity(int cityId) {
     loadedCity = &City::cities[cityId];
     draw();
-    gout << refresh;
+}
+
+void RightPanel::refresh() {
+    for(int i = 0; i < 5; i++) panels[i]->refresh(loadedCity);
 }

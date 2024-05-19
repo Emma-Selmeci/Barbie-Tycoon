@@ -12,10 +12,11 @@ private:
 public:
     Slider(Vec2, int, int);
     void resetValues(int, int);
-    void draw();
-    void drop();
-    bool check(event&);
-    bool update(event&);
+    void draw() override;
+    void drop() override;
+    bool check(event&) override;
+    bool update(event&) override;
+    int getValue();
 };
 
 #endif // SLIDER

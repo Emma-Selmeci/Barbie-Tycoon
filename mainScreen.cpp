@@ -6,7 +6,7 @@
 #include "staticData.hpp"
 
 const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightHeight = screenHeight-2*borderSize;
-int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
+const int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
 
 MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHeight) {
     drawBorders({GUIviolet},{GUIvioletLight},{GUIvioletDark});
