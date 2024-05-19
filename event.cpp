@@ -4,8 +4,8 @@
 
 static int messageWidth = 400;
 
-Event::Event(std::string str, std::string response, bool isHebrew, ImageLoader* image, std::function<bool()> f, int turnDelay) :
-    response(response), isHebrew(isHebrew), image(image), f(f), turnDelay(turnDelay)
+GameEvent::GameEvent(std::string str, std::string response, bool isHebrew, ImageLoader* image, std::function<bool()> f, int turnDelay, std::function<void()> effect) :
+    response(response), isHebrew(isHebrew), image(image), f(f), turnDelay(turnDelay), effect(effect)
     {
     static bool isInitialized = false;
     if(!isInitialized) {
@@ -15,7 +15,18 @@ Event::Event(std::string str, std::string response, bool isHebrew, ImageLoader* 
     cropMessage(str);
 }
 
-void Event::cropMessage(std::string& str) {
+bool GameEvent::check() {
+    if(f()) {
+        if(turnDelay == 0) return true; else turnDelay--;
+    }
+    return false;
+}
+
+void GameEvent::doEffect() {
+    effect();
+}
+
+void GameEvent::cropMessage(std::string& str) {
     int lock = 0;
 
     for(int i = 1; i < str.length()+1; i++) {

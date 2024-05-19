@@ -6,6 +6,7 @@
 
 #include "graphicsHelper.hpp"
 #include "colors.hpp"
+#include "gameManager.hpp"
 
 using namespace genv;
 
@@ -14,6 +15,8 @@ Vec2 MessagePanel::pos;
 Vec2 MessagePanel::size;
 Vec2 MessagePanel::replyP1;
 Vec2 MessagePanel::replyP2;
+std::vector<GameEvent> MessagePanel::events;
+std::vector<GameEvent*> MessagePanel::loadedEvents;
 
 void drawString(std::string str) {
     gout << color(0,0,0);
@@ -43,27 +46,58 @@ void drawString(std::string str) {
     }
 }
 
-void MessagePanel::draw() {
+void MessagePanel::draw(GameEvent* gameEvent) {
     drawRect(pos,size,{lightPink});
-    advisorImage.draw({pos.x+50,pos.y+100});
-    drawString("Good Morning sir! It's a pleasure to meet you! I'm glad things are back in track with you being the CEO of the Barbie company. I'm your chief advisor and you can expect me to tell you all sorts of important information in the future.");
-    std::string response = "Got it!";
-    int messageLength = gout.twidth(response);
+    gameEvent->image->draw({pos.x+50,pos.y+100});
+    gout << color(0,0,0);
+    for(int i = 0; i < gameEvent->message.size(); i++) {
+        gout << move_to(200,100+i*20) << text(gameEvent->message[i]);
+    }
+    if(gameEvent->isHebrew) {gout.load_font("hebrew.ttf",15);}
+    int messageLength = gout.twidth(gameEvent->response);
     replyP1 = {pos.x+size.x/2-messageLength/2-5,pos.y+size.y-30};
     replyP2 = {replyP1.x+messageLength+10,replyP1.y+25};
     drawRect(replyP1,{replyP2.x-replyP1.x,replyP2.y-replyP1.y});
-    gout << color(255,255,255) << move_to(replyP1.x+5,replyP1.y+5) << text(response);
+    gout << color(255,255,255) << move_to(replyP1.x+5,replyP1.y+5) << text(gameEvent->response) << refresh;
+    if(gameEvent->isHebrew) {gout.load_font("classic.ttf",15);}
 }
 
 void MessagePanel::loadMessages(event& ev) {
-    while(gin >> ev) {
-        if(ev.type == ev_mouse && ev.button == 1 && isInRect({ev.pos_x,ev.pos_y}, replyP1 , replyP2 )) {
-            return;
+    getMessages();
+    for(int i = 0; i < loadedEvents.size(); i++) {
+        draw(loadedEvents[i]);
+        while(gin >> ev) {
+            if(ev.type == ev_mouse && ev.button == 1 && isInRect({ev.pos_x,ev.pos_y}, replyP1 , replyP2 )) {
+                break;
+            }
         }
     }
 }
 
+void MessagePanel::getMessages() {
+    loadedEvents.clear();
+    for(int i = 0; i < events.size(); i++) {
+        if(events[i].check()) loadedEvents.push_back(&events[i]);
+    }
+}
+
 void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
+    //Doing initialization here so that they are done during the loading scene
+{
+
+
+    events.push_back({"This is a test event :)","I see",false,&advisorImage,[](){
+                     if(GameManager::turnCounter == 1) return true;
+                     },0,[](){
+
+                     }});
+
+    events.push_back({"This is a second message to see if everything's working. Also, this one is longer xd","שלום",true,&advisorImage,[](){
+                     if(GameManager::turnCounter == 1) return true;
+                     },0,[](){
+
+                     }});
+}
     MessagePanel::pos = initialPos;
     MessagePanel::size = initialSize;
 }

@@ -21,8 +21,6 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
     StaticData::leftArrow.setTransparent(false);
     StaticData::rightArrow.setTransparent(false);
 
-
-    MessagePanel::draw();
     RightPanel::draw();
 
     gout << refresh;

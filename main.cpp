@@ -1,5 +1,6 @@
 #include <iostream>
 #include <functional>
+#include <vector>
 
 #include "graphics.hpp"
 
@@ -23,9 +24,18 @@ return true;
 
 int main()
 {
-    bool b = true;
-    FunctorClass f([](){return testMethod();});
-    std::cout << f.getResult();
+    std::vector<FunctorClass> functorclasses;
+    functorclasses.push_back({[](){
+                             std::cout << "Called\n";
+                             return true;
+                             }});
+    functorclasses[0].getResult();
+    std::vector<FunctorClass*> other;
+    other.push_back(&functorclasses[0]);
+    other[0]->getResult();
+    other.clear();
+    functorclasses[0].getResult();
+
 
 
     /*
