@@ -28,6 +28,7 @@ void GameManager::nextTurn() {
         c.storedParts = c.shippingParts;
         c.shippingParts = 0;
         c.storedDolls[c.producedType] += c.producingDolls;
+        c.producingDolls = 0;
     }
     RightPanel::refresh();
 }

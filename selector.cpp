@@ -4,6 +4,7 @@
 
 #include "mainScreen.hpp"
 #include "staticData.hpp"
+#include "city.hpp"
 
 std::string Selector::barbieTypes[] = {
     "Simple Doll",
@@ -18,7 +19,7 @@ Selector::Selector(Vec2 pos, SelectorType type, selectorCallback f, int id) : Wi
 }
 
 void Selector::draw() {
-    std::string valText = type == SelectorType::DOLLSELECTOR ? barbieTypes[value] : barbieTypes[value]; //This should be changed when cities will be included
+    std::string valText = type == SelectorType::DOLLSELECTOR ? barbieTypes[value] : City::cityToName(value); //This should be changed when cities will be included
     int sLength = gout.twidth(valText);
     gout << move_to(pos.x+MainScreen::rightWidth/2-sLength/2,pos.y+gout.cascent()) << text(valText);
     StaticData::leftArrow.draw({pos.x+5,pos.y});
@@ -38,6 +39,9 @@ bool Selector::check(event& ev) {
 }
 
 void Selector::boundValue() {
+    if(type == SelectorType::CITYSELECTOR) {
+        if(value > 9) value = 9; else if(value < 0) value = 0;
+    }
     f(value,id);
 }
 

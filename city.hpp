@@ -12,6 +12,7 @@ class City {
     std::string name;
 public: //I'm leaving most of these public for easier access...
     static City cities[10];
+    static std::string cityToName(int);
     friend class RightPanel;
     int storedParts = 0;
     int shippingParts = 0;
