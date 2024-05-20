@@ -111,7 +111,7 @@ void GameManager::generateFans() {
     if(Research::wasResearched(ResearchEnum::DOLL5)) max = 4;
 
     for(int i = 0; i < turnCoefficient; i++) {
-        int delta = turnCounter/3 + rand() % turnCounter/3 + 5;
+        int delta = turnCounter/3 + rand() % turnCounter/10 * 3;
         int fanIndex = rand() % (max+1);
         City::cities[fanCities[i]].fans[fanIndex] += (delta + City::cities[fanCities[i]].marketingBonus);
     }

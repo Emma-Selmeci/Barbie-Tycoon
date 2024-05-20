@@ -1,3 +1,8 @@
+FONTOS: A projektnek nem sikerült a végére érnem a hétfői határidő előtt.
+Itt at a verzió látható, amit a határidő előtt tudtam megcsinálni, de
+GitHub-ra feltöltöttem az azóta kibővített, teljes projektet, amire
+reményeim szerint csak a balancing szorul már.
+
 Ez a beadandó hatalmas munka volt, de nagy örömmel csináltam. Ez a legkomplexebb program, amit valaha írtam.
 
 https://github.com/Emma-Selmeci/Bevprog2-Beadand-3
@@ -20,13 +25,13 @@ Amennyiben nehéznek bizonyulna a játék, 'c' gombbal lehet becsalni pénzt.
 Előfordul, hogy beakadnak gombok :/
 Ez szerintem az könyvtár okozta overhead hibája. Tessék kétszer megnyomni, másodjára működni szokott.
 
-Ui.: Sajnos reményeimmel ellentétben nem sikerült befejeznem a projektet.
+05.20. hajnal Ui.: Sajnos reményeimmel ellentétben nem sikerült befejeznem a projektet.
 A leadási határidő idejében feltöltött állapot ugyan működik, de hiányzik belőle
 sajnos a tech tree második része,
 és a játék története sem bontakozik ki. Igyekszem befejezni még holnap a projektet,
 így játszhatóvá válik a nem félkész verzió is.
 
-Ui2.: Befejezem a projektet. A dolgok, amiket a leadás határideje és a befejezés között hozzáadtam:
+05:20. 22:32: Ui2.: Befejezem a projektet. A dolgok, amiket a leadás határideje és a befejezés között hozzáadtam:
 -Az épületek lehelyezése pénzbe kerül
 -Pár menüben megjelenő üzenet kijavítva
 -Átállítottam az árakat és kutatási költségeket, hogy ne csődöljön be a játékos
