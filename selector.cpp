@@ -7,9 +7,9 @@
 
 std::string Selector::barbieTypes[] = {
     "Simple Doll",
-    "Dressable Doll",
+    "Advanced Doll",
+    "Eerie Doll",
     "Perfect Doll",
-    "His Doll",
     "Nephilim",
 };
 

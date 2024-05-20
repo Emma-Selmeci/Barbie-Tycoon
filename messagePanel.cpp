@@ -6,10 +6,15 @@
 #include "colors.hpp"
 #include "gameManager.hpp"
 #include "research.hpp"
+#include "mainScreen.hpp"
 
 using namespace genv;
 
 ImageLoader MessagePanel::advisorImage("textures/assistant.kep");
+ImageLoader MessagePanel::visitorImage("textures/visitor.kep");
+ImageLoader MessagePanel::blank("textures/blank.kep");
+bool MessagePanel::specialFlag = false;
+bool MessagePanel::cutSceneFlag = false;
 Vec2 MessagePanel::pos;
 Vec2 MessagePanel::size;
 Vec2 MessagePanel::replyP1;
@@ -46,9 +51,9 @@ void drawString(std::string str) {
 }
 
 void MessagePanel::draw(GameEvent* gameEvent) {
-    drawRect(pos,size,{lightPink});
+    if(!specialFlag) drawRect(pos,size,{lightPink}); else drawRect(0,0,999,599,0,0,0);
     gameEvent->image->draw({pos.x+50,pos.y+100});
-    gout << color(0,0,0);
+    if(!specialFlag) gout << color(0,0,0); else gout << color(255,255,255);
     for(int i = 0; i < gameEvent->message.size(); i++) {
         gout << move_to(200,100+i*20) << text(gameEvent->message[i]);
     }
@@ -57,7 +62,8 @@ void MessagePanel::draw(GameEvent* gameEvent) {
     replyP1 = {pos.x+size.x/2-messageLength/2-5,pos.y+size.y-30};
     replyP2 = {replyP1.x+messageLength+10,replyP1.y+25};
     drawRect(replyP1,{replyP2.x-replyP1.x,replyP2.y-replyP1.y});
-    gout << color(255,255,255) << move_to(replyP1.x+5,replyP1.y+5) << text(gameEvent->response) << refresh;
+    if(specialFlag) gout << color(0,0,0); else gout << color(255,255,255);
+    gout << move_to(replyP1.x+5,replyP1.y+5) << text(gameEvent->response) << refresh;
     if(gameEvent->isHebrew) {gout.load_font("classic.ttf",15);}
 }
 
@@ -67,6 +73,10 @@ void MessagePanel::loadMessages(event& ev) {
         draw(loadedEvents[i]);
         while(gin >> ev) {
             if(ev.type == ev_mouse && ev.button == 1 && isInRect({ev.pos_x,ev.pos_y}, replyP1 , replyP2 )) {
+                if(cutSceneFlag) {
+                    playCutScene(ev);
+                    cutSceneFlag = false;
+                }
                 loadedEvents[i]->doEffect();
                 break;
             }
@@ -134,7 +144,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
 
                      }});
 
-    events.push_back({"While we're waiting for the products to arrive, we should take a look at our R&D. I've heard that your first lab was just finished in Budapest and it will generate research points for you. There is a tech-tree on the bottom where you can unlock brand new dolls, improvements and more!","Can't wait!",false,&advisorImage,[](){
+    events.push_back({"While we're waiting for the products to arrive, we should take a look at our R&D. I've heard that your first lab was just finished in Budapest and it will generate research points for you. There is a tech-tree on the bottom where you can unlock brand new dolls, improvements and more! Don't forget to give your researchers new orders once something new was researched.","Can't wait!",false,&advisorImage,[](){
                      if(GameManager::turnCounter == 4) return true; else return false;
                      },0,[](){
                         GameManager::buildLab(&City::cities[2]);
@@ -152,13 +162,13 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
 
                      }});
 
-    events.push_back({"Good news, we can build shops now. They're not that special but if we build a shop in a city where demand for our dolls is high, we can increase our profits. I hope you're aware of the cities that have the most following by now, Sir","Of course, shop-building time",false,&advisorImage,[](){
+    events.push_back({"Good news, we can build shops now. They're not that special but if we build a shop in a city where demand for our dolls is high, we can increase our profits. I hope you're aware of the city that have the most following by now, Sir","Of course, shop-building time",false,&advisorImage,[](){
                      if(Research::wasResearched(ResearchEnum::SHOP)) return true; else return false;
                      },0,[](){
 
                      }});
 
-    events.push_back({"All right, Sir, that's all you have to know for now. I'll be back once you make some progress","See you soon!",false,&advisorImage,[](){
+    events.push_back({"All right, Sir, that's all you have to know for now. I'll be back once you make some progress. If you've done everything correctly, you should be seeing your first chunk of income flowing in this turn","See you soon!",false,&advisorImage,[](){
                      if(GameManager::turnCounter == 6) return true; else return false;
                      },0,[](){
 
@@ -213,12 +223,132 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      }});
 
     events.push_back({"Sir, I'm excited about the future of this company. I've taken out a loan and bought a new house for my family. I hope you do the same with yours","Things still could be better",false,&advisorImage,[](){
-                     if(!Research::isLocked(6)) return true; else return false;
+                     if(!Research::isLocked(4)) return true; else return false;
                      },3,[](){
 
+                     }});
+
+    events.push_back({"What do you think of that video, Sir?","What video?",false,&advisorImage,[](){
+                     if(!Research::isLocked(5)) return true; else return false;
+                     },8,[](){
+
+                     }});
+
+    events.push_back({"Oh, well, I hoped that I wouldn't be the one bringing this to your attention. A video went viral on Youtube with the title \"REAL BARBIE DOLL CRIES TEARS OF BLOOD AT MIDNIGHT\". It's creepy for sure but it's an obvious hoax.","Who would fake such a video?",false,&advisorImage,[](){
+                     if(!Research::isLocked(5)) return true; else return false;
+                     },8,[](){
+
+                     }});
+
+    events.push_back({"Sir, your dream has come true! Our designers have secured rights to build so-called Mojo Dojo Casa Houses! These are special Brand shops for our most dedicated fans. Mojo Dojo Casa Houses provide a twofold profit when selling dolls in a city with them.","It's time to hit big",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::MOJODOJO)) return true; else return false;
+                     },0,[](){
+
+                     }});
+
+    events.push_back({"Sir, you look a little tired. I know you've been working tirelessly on Doll V3 but you could really rest a little more. I'm sure soon we'll find a solution.","I'm not tired",false,&advisorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },0,[](){
+                        specialFlag = true;
+                     }});
+
+    events.push_back({"*You are alone in your office one night, working on your new Barbie design when you notice a strange woman had entered your room.*","Who are you and how did you get in here?",false,&visitorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+
+                     }});
+
+    events.push_back({"Who I am is not important and I got here by telling the guard at your door that I'm your mistress.","That's rude! Get out of here!",false,&visitorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+
+                     }});
+
+    events.push_back({"Not until you listen to my offer.","What offer?",false,&visitorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+
+                     }});
+
+    events.push_back({"I've heard that you've been having trouble designing the new iteration of your famous Barbie doll. I have in this box a prototype that might help you find what you're looking for. All I want in return is one little favor","I don't need your help.",false,&visitorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+                        cutSceneFlag = true;
+                     }});
+
+    events.push_back({"*The visitor starts unpacking the box nevertheless with threatening moves. You retreat into one of the corners of your office, frightened by the evil glittering in the visitor's eyes. Panic slowly takes over you.*","GUARDS, HELP, NOW",false,&visitorImage,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+                        specialFlag = false;
+                        MainScreen::object->quickRepaint();
+                     }});
+
+    events.push_back({"*You wake up in your bed next to your wife, sweating. It was just a nightmare.*","I hope this never happens again",false,&blank,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+
+                     }});
+
+    events.push_back({"*But you think you've seen a glimpse of what's inside that woman's box. And she was right, you have some new ideas! You rush to your desk and start designing the doll once again. This time, you will succeed. But still you wonder, what favor does this visitor want from you in return for her help?*","It's probably not important",false,&blank,[](){
+                     if(GameManager::cutsceneFlag) return true; else return false;
+                     },2,[](){
+                        GameManager::unlock();
+                        GameManager::startTransformation();
                      }});
 
 }
     MessagePanel::pos = initialPos;
     MessagePanel::size = initialSize;
+}
+
+void MessagePanel::playCutScene(event& ev) {
+    ImageLoader hunMap1("textures/hunmap1.kep");
+    ImageLoader hunMap2("textures/hunmap2.kep");
+    ImageLoader hunMap3("textures/hunmap3.kep");
+    ImageLoader hunMap4("textures/hunmap4.kep");
+    ImageLoader hunMap5("textures/hunmap5.kep");
+    ImageLoader hunMap6("textures/hunmap6.kep");
+    int accum = 0;
+    Vec2 pos{20,70};
+    int d = 500;
+    gout << color(0,0,0);
+    drawRect(0,0,999,599);
+    hunMap1.draw(pos);
+    gout << refresh;
+    while(gin >> ev) {
+        if(ev.type == ev_timer) {
+            accum++;
+            if(accum == d+120) {
+                hunMap2.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+135) {
+                hunMap3.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+150) {
+                hunMap3.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+165) {
+                hunMap4.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+180) {
+                hunMap5.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+195) {
+                hunMap6.draw(pos);
+                gout << refresh;
+            }
+            if(accum == d+205) {
+                drawRect({0,0},{999,599});
+                gout << refresh;
+            }
+            if(accum == d+400) {
+                break;
+            }
+        }
+    }
 }

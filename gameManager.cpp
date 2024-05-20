@@ -7,9 +7,13 @@
 #include "research.hpp"
 #include "techTree.hpp"
 
-int GameManager::money = 1000;
+int GameManager::money = 3000;
 int GameManager::turnCounter = 1;
 int GameManager::shipmentTime = 3;
+int GameManager::eventAccum = 0;
+int GameManager::transformationCoefficient = 0;
+bool GameManager::cutsceneFlag = false;
+bool GameManager::transformationFlag = false;
 
 void GameManager::purchaseParts(City* city, int amount) {
     money-=amount*10;
@@ -47,6 +51,7 @@ void GameManager::shipDolls(City* from, int toi, int type, int amount) {
 }
 
 void GameManager::nextTurn() {
+    std::cout << "\n\nTurn " << turnCounter << '\n';
     MainScreen::loadFlag = true;
     turnCounter++;
     for(int i = 0; i < 10; i++) {
@@ -61,10 +66,13 @@ void GameManager::nextTurn() {
         }
         if(c.hasFactory) money-=c.wages;
         ship(c);
-        if(c.hasLab) Research::currentTech->researchAccum+=20;
+        if(c.hasLab && !(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100)) Research::currentTech->researchAccum+=20;
     }
+    if(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100) eventAccum++;
+    if(eventAccum > 3) cutsceneFlag = true;
     Research::checkUnlock();
 
+    if(transformationFlag) transformationCoefficient++;
 
     generateFans();
     generateStrike();
@@ -101,7 +109,7 @@ void GameManager::generateFans() {
     if(Research::wasResearched(ResearchEnum::DOLL5)) max = 4;
 
     for(int i = 0; i < turnCoefficient; i++) {
-        int delta = turnCounter/2 + rand() % turnCounter/2 + 5;
+        int delta = turnCounter/3 + rand() % turnCounter/3 + 5;
         int fanIndex = rand() % (max+1);
         City::cities[fanCities[i]].fans[fanIndex] += (delta + City::cities[fanCities[i]].marketingBonus);
     }
@@ -147,7 +155,7 @@ void GameManager::generateStrike() {
 int GameManager::fanCities[10];
 
 void GameManager::increaseWages(City* city) {
-    city->wages+=10;
+    city->wages+=40;
     city->hasStrike = false;
     RightPanel::refresh();
 }
@@ -166,7 +174,14 @@ void GameManager::buildLab(City* city) {
 }
 
 void GameManager::buildShop(City* city) {
-    city->shopLevel = 1;
+    if(city->shopLevel = 0) {
+        city->shopLevel = 1;
+        money-=500;
+    } else {
+        city->shopLevel = 2;
+        money-=5000;
+    }
+
     RightPanel::refresh();
 }
 
@@ -182,9 +197,26 @@ void GameManager::decreaseShipmentTime() {
 
 void GameManager::doMarketing(City* city) {
     city->marketingBonus+=10;
+    money-=2000;
 }
 
 void GameManager::buildFactory(City* city) {
     city->hasFactory = true;
+    money-=500;
     RightPanel::refresh();
+}
+
+void GameManager::buildLabAndPay(City* city) {
+    city->hasLab = true;
+    money-=2000;
+    RightPanel::refresh();
+}
+
+void GameManager::unlock() {
+    Research::unlock();
+    RightPanel::refresh();
+}
+
+void GameManager::startTransformation() {
+    transformationFlag = true;
 }

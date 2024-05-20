@@ -6,10 +6,12 @@
 
 const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightHeight = screenHeight-2*borderSize;
 const int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
+MainScreen* MainScreen::object;
 
 bool MainScreen::loadFlag = false;
 
 MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHeight) {
+    object = this;
     drawBorders({GUIviolet},{GUIvioletLight},{GUIvioletDark});
     drawBackground({lightPink});
     gout.load_font("classic.ttf",15);
@@ -106,5 +108,18 @@ void MainScreen::drawCurrency() {
     drawRect({borderSize+5+mapWidth/2,borderSize},{mapWidth/2,textPanelHeight},{lightPink});
     std::string moneyMessage = "You have " + std::to_string(GameManager::money) + "$";
     gout << color(0,0,0) << move_to(borderSize+5+mapWidth/2,borderSize+8) << text(moneyMessage);
+}
+
+void MainScreen::quickRepaint() {
+    drawBorders({GUIviolet},{GUIvioletLight},{GUIvioletDark});
+    drawBackground({lightPink});
+    TechTree::draw();
+    RightPanel::draw();
+    gout.load_font("classic.ttf",15);
+    gout << color(0,0,0);
+    drawTitle();
+    drawCurrency();
+
+    gout << refresh;
 }
 

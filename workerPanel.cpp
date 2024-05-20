@@ -8,8 +8,8 @@ WorkerPanel::WorkerPanel() :
         status({pos.x+5,pos.y+5},"The workers in this city are content with their 100$ wages"),
         fanWidget({pos.x+5,pos.y+110},"Nobody wants your dolls in this city"),
         increasePayment({pos.x+MainScreen::rightWidth/2,pos.y+70},0,buttonCB,"Raise wages"),
-        marketingWidget({pos.x+5,pos.y+120},"Pay 500$ to advetise your products for more demand"),
-        marketingButton({pos.x+MainScreen::rightWidth/2,pos.y+160},1,buttonCB,"Advertise")
+        marketingWidget({pos.x+5,pos.y+160},"Pay 500$ to advetise your products for more demand"),
+        marketingButton({pos.x+MainScreen::rightWidth/2,pos.y+200},1,buttonCB,"Advertise")
 {
     increasePayment.isActive = false;
     marketingButton.isActive = false;
@@ -23,6 +23,11 @@ WorkerPanel::WorkerPanel() :
 void WorkerPanel::refresh(City* city) {
     SubPanel::refresh(city);
     std::string t;
+    if(!city->hasFactory) {
+        increasePayment.isActive = false;
+        t = "You have no factory in this city";
+        status.updateMessage(t);
+    }
     if(!city->hasStrike) {
         increasePayment.isActive = false;
         t = "The workers in this city are content with their " + std::to_string(city->wages) + "$ wages";

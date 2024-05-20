@@ -35,14 +35,14 @@
 1716166665 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\helpers.cpp
 	"helpers.hpp"
 
-1716166710 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
+1716207370 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.cpp
 	"mainScreen.hpp"
 	"rightPanel.hpp"
 	"gameManager.hpp"
 	"staticData.hpp"
 	"techTree.hpp"
 
-1716125538 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.hpp
+1716206847 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\mainscreen.hpp
 	"graphics.hpp"
 	"mapPanel.hpp"
 	"colors.hpp"
@@ -60,7 +60,8 @@
 	"rightPanel.hpp"
 	"gameManager.hpp"
 
-1715611336 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
+1716208382 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\colors.hpp
+	"graphicsHelper.hpp"
 
 1716054741 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\graphicshelper.cpp
 	"graphics.hpp"
@@ -87,19 +88,20 @@
 	"subPanel.hpp"
 	"partsPanel.hpp"
 
-1716123053 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.hpp
+1716198645 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.hpp
 	<vector>
 	"imageLoader.hpp"
 	"helpers.hpp"
 	"event.hpp"
 
-1716168579 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.cpp
+1716207292 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\messagepanel.cpp
 	"messagePanel.hpp"
 	"graphics.hpp"
 	"graphicsHelper.hpp"
 	"colors.hpp"
 	"gameManager.hpp"
 	"research.hpp"
+	"mainScreen.hpp"
 
 1716160990 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\city.cpp
 	"city.hpp"
@@ -109,7 +111,7 @@
 	<string>
 	"staticData.hpp"
 
-1716168513 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\gamemanager.cpp
+1716208142 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\gamemanager.cpp
 	"gameManager.hpp"
 	<iostream>
 	"rightPanel.hpp"
@@ -117,7 +119,7 @@
 	"research.hpp"
 	"techTree.hpp"
 
-1716168473 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\gamemanager.hpp
+1716208077 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\gamemanager.hpp
 	"city.hpp"
 
 1716152059 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\subpanel.hpp
@@ -159,7 +161,7 @@
 	"graphics.hpp"
 	"widget.hpp"
 
-1716150451 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\staticdata.cpp
+1716193832 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\staticdata.cpp
 	"staticData.hpp"
 	<iostream>
 
@@ -179,12 +181,13 @@
 1716126166 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\slider.hpp
 	"widget.hpp"
 
-1716166880 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\productionpanel.cpp
+1716169012 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\productionpanel.cpp
 	"productionPanel.hpp"
 	<iostream>
 	"mainScreen.hpp"
 	"staticData.hpp"
 	"gameManager.hpp"
+	"research.hpp"
 
 1716168608 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\productionpanel.hpp
 	"subPanel.hpp"
@@ -220,21 +223,21 @@
 	"widget.hpp"
 	<vector>
 
-1716166767 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\selector.cpp
+1716194113 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\selector.cpp
 	"selector.hpp"
 	"mainScreen.hpp"
 	"staticData.hpp"
 	"city.hpp"
 	"research.hpp"
 
-1716167852 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\researchpanel.cpp
+1716194605 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\researchpanel.cpp
 	"researchPanel.hpp"
 	<iostream>
 	"gameManager.hpp"
 	"mainScreen.hpp"
 	"research.hpp"
 
-1716166158 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\researchpanel.hpp
+1716169228 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\researchpanel.hpp
 	"subPanel.hpp"
 	"textWidget.hpp"
 	"button.hpp"
@@ -257,16 +260,17 @@
 	"mainScreen.hpp"
 	"staticData.hpp"
 
-1716168257 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\workerpanel.cpp
+1716194275 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\workerpanel.cpp
 	"workerPanel.hpp"
 	"gameManager.hpp"
 	"mainScreen.hpp"
 	"research.hpp"
 
-1716166827 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\research.cpp
+1716197319 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\research.cpp
 	"research.hpp"
+	<iostream>
 
-1716166336 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\research.hpp
+1716207964 c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\research.hpp
 	<string>
 
 1716166821 source:c:\users\selmeci emma\desktop\mérnökinformatika\2. félév\bevprog\barbiegeddon second try\techtree.cpp

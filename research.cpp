@@ -1,5 +1,7 @@
 #include "research.hpp"
 
+#include <iostream>
+
 int Research::idCounter = 0;
 
 bool Research::wasResearched(ResearchEnum tech) {
@@ -19,26 +21,35 @@ bool Research::isLocked() {
     return isLocked(id);
 }
 
+bool Research::isItOurCurrentTech() {
+    std::cout << "Flag\n";
+    if(currentTech == &techList[6]) return true; else return false;
+}
+
 void Research::checkUnlock() {
     if(currentTech->researchAccum >= currentTech->researchCost) currentTech->isResearched = true;
 }
 
+void Research::unlock() {
+    techList[6].isResearched = true;
+}
+
 Research Research::techList[15] = {
-    Research("Better","dolls",100),
-    Research("Shops","",100),
-    Research("Lvl 2","trucks",160),
-    Research("Marketing","",160),
-    Research("More","factories",200),
-    Research("More","research",200),
-    Research("Advanced","dolls",260),
-    Research("Barbie","shops",260),
-    Research("Efficient","factories",300),
-    Research("Lvl3","trucks",300),
-    Research("The perfect","doll",340),
-    Research("Mark of","the beast",340),
-    Research("Final doll","",400),
-    Research("Secret","",400),
-    Research("World","conquest",600)
+    Research("Better","dolls",160),
+    Research("Shops","",160),
+    Research("Lvl 2","trucks",200),
+    Research("Marketing","",200),
+    Research("More","factories",240),
+    Research("More","research",240),
+    Research("Advanced","dolls",300),
+    Research("Barbie","shops",300),
+    Research("Efficient","factories",340),
+    Research("Lvl3","trucks",340),
+    Research("The perfect","doll",400),
+    Research("Mark of","the beast",400),
+    Research("Final doll","",600),
+    Research("Secret","",600),
+    Research("World","conquest",1000)
 };
 
 Research* Research::currentTech = &techList[0];

@@ -60,8 +60,16 @@ void ResearchPanel::refresh(City* city) {
     shopButton.isActive = false;
 
     if(Research::wasResearched(ResearchEnum::SHOP)) {
-        if(city->shopLevel == 1) {
-            t = "Your shop provides 1.5x profits in this city";
+        if(city->shopLevel == 2) {
+            t = "Your Mojo Dojo Casa House provides 2x profits in this city";
+        } else if(city->shopLevel == 1) {
+            if(Research::wasResearched(ResearchEnum::MOJODOJO)) {
+                t = "Your shop provides 1.5x profits in this city, but you could update it for $5000";
+                if(GameManager::money >= 5000) shopButton.isActive = true;
+            } else {
+                t = "Your shop provides 1.5x profits in this city";
+            }
+
         } else if(city->shopLevel == 0) {
             t = "You can build a shop here for $1000";
             if(GameManager::money >= 1000) {
@@ -76,26 +84,24 @@ void ResearchPanel::refresh(City* city) {
     labButton.isActive = false;
 
     if(Research::wasResearched(ResearchEnum::MORERESEARCH)) {
-        if(!city->hasLab) {
-            t = "Your shop provides 1.5x profits in this city";
-        } else if(city->shopLevel == 0) {
-            t = "You can build a shop here for $1000";
-            if(GameManager::money >= 1000) {
-                shopButton.isActive = true;
-            }
-        }
-        shopWidget.isActive = true;
-        shopWidget.updateMessage(t);
-    }
+        t = "You can build a lab here for $2000";
+        labWidget.isActive = false;
+        labWidget.updateMessage(t);
+        if(GameManager::money >= 2000) {
+            labButton.isActive = true;
 
+        }
+    }
 }
 
 void ResearchPanel::buttonCB(int i) {
     if(i == 0) {
         specialEvent = true;
         GameManager::requestRefresh();
-    } else {
+    } else if(i == 1) {
         GameManager::buildShop(currentCity);
+    } else if(i == 2) {
+        GameManager::buildLabAndPay(currentCity);
     }
 
 }

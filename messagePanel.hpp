@@ -11,6 +11,8 @@
 
 class MessagePanel {
     static ImageLoader advisorImage;
+    static ImageLoader visitorImage;
+    static ImageLoader blank;
     static Vec2 pos;
     static Vec2 size;
     static Vec2 replyP1;
@@ -18,10 +20,14 @@ class MessagePanel {
     static std::vector<GameEvent> events;
     static std::vector<GameEvent*> loadedEvents;
     static void getMessages();
+    static bool specialFlag;
+    static bool cutSceneFlag;
+    static void playCutScene(event& ev);
 public:
     static void setPos(Vec2, Vec2);
     static void draw(GameEvent*);
     static void loadMessages(event&);
+
 };
 
 #endif // MESSAGEPANEL

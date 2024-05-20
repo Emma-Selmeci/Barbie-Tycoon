@@ -2,69 +2,123 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="rightPanel.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="gameManager.hpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="610" topLine="12" />
+			<Cursor1 position="849" topLine="9" />
 		</Cursor>
 	</File>
-	<File name="mapPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="gameManager.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="91" topLine="1" />
+			<Cursor1 position="5659" topLine="152" />
 		</Cursor>
 	</File>
-	<File name="subPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="shipmentPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="164" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="imageLoader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1172" topLine="40" />
-		</Cursor>
-	</File>
-	<File name="helpers.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="335" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="mapPanel.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2076" topLine="29" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="275" topLine="0" />
+			<Cursor1 position="617" topLine="11" />
 		</Cursor>
 	</File>
 	<File name="staticData.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="146" topLine="0" />
+			<Cursor1 position="165" topLine="0" />
 		</Cursor>
+	</File>
+	<File name="mainScreen.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+		<Folding>
+			<Collapse line="58" />
+			<Collapse line="93" />
+			<Collapse line="100" />
+		</Folding>
+	</File>
+	<File name="shipmentPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2727" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="widget.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="21" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="rightPanel.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="275" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="slider.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="441" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="mapPanel.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2074" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="techTree.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="helpers.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="event.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="681" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="partsPanel.hpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="194" topLine="2" />
+		</Cursor>
+	</File>
+	<File name="event.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="391" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="messagePanel.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12355" topLine="116" />
+		</Cursor>
+		<Folding>
+			<Collapse line="88" />
+			<Collapse line="94" />
+			<Collapse line="100" />
+			<Collapse line="106" />
+			<Collapse line="112" />
+			<Collapse line="118" />
+			<Collapse line="124" />
+			<Collapse line="130" />
+			<Collapse line="136" />
+			<Collapse line="142" />
+			<Collapse line="148" />
+			<Collapse line="154" />
+			<Collapse line="160" />
+			<Collapse line="166" />
+			<Collapse line="172" />
+			<Collapse line="178" />
+			<Collapse line="184" />
+			<Collapse line="190" />
+			<Collapse line="196" />
+			<Collapse line="202" />
+			<Collapse line="208" />
+			<Collapse line="214" />
+		</Folding>
 	</File>
 	<File name="mainMenu.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="898" topLine="16" />
+			<Cursor1 position="898" topLine="31" />
 		</Cursor>
 	</File>
-	<File name="messagePanel.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="imageLoader.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="324" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="widget.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="374" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="testWidget.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="79" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="subPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="406" topLine="11" />
+			<Cursor1 position="466" topLine="3" />
 		</Cursor>
 	</File>
 	<File name="graphicsHelper.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -72,107 +126,54 @@
 			<Cursor1 position="475" topLine="0" />
 		</Cursor>
 	</File>
+	<File name="techTree.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="318" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="productionPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1744" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="widget.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="161" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="workerPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="279" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="productionPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="478" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="subPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="city.hpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="348" topLine="0" />
+			<Cursor1 position="588" topLine="8" />
 		</Cursor>
 	</File>
-	<File name="partsPanel.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="selector.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="876" topLine="19" />
-		</Cursor>
-	</File>
-	<File name="rightPanel.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="952" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="mainScreen.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="511" topLine="6" />
+			<Cursor1 position="380" topLine="6" />
 		</Cursor>
 	</File>
 	<File name="graphicsHelper.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="857" topLine="0" />
+			<Cursor1 position="857" topLine="7" />
 		</Cursor>
 	</File>
 	<File name="helpers.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="123" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="city.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="73" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="staticData.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="153" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="mainMenu.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="144" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="slider.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="630" topLine="20" />
-		</Cursor>
-		<Folding>
-			<Collapse line="43" />
-			<Collapse line="51" />
-			<Collapse line="56" />
-		</Folding>
-	</File>
-	<File name="imageLoader.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="466" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="slider.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="216" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="mainScreen.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="390" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="52" />
-			<Collapse line="87" />
-			<Collapse line="94" />
-		</Folding>
-	</File>
-	<File name="gameManager.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="30" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="partsPanel.hpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="146" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="messagePanel.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1925" topLine="8" />
-		</Cursor>
-		<Folding>
-			<Collapse line="17" />
-		</Folding>
-	</File>
-	<File name="gameManager.hpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="147" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="testWidget.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="193" topLine="1" />
+			<Cursor1 position="167" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="colors.hpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -180,9 +181,124 @@
 			<Cursor1 position="42" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="widget.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="staticData.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="591" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="rightPanel.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="787" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="testWidget.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="79" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="partsPanel.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="slider.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1468" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="168" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="workerPanel.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="108" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="mapPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="91" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="researchPanel.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2294" topLine="70" />
+		</Cursor>
+	</File>
+	<File name="messagePanel.hpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="492" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="button.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="208" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="mainScreen.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="525" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="mainMenu.hpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="144" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="button.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="21" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="imageLoader.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="39" topLine="41" />
+		</Cursor>
+	</File>
+	<File name="research.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="textWidget.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="25" topLine="29" />
+		</Cursor>
+	</File>
+	<File name="researchPanel.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="361" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="subPanel.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="242" topLine="7" />
+		</Cursor>
+	</File>
+	<File name="selector.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="23" topLine="44" />
+		</Cursor>
+	</File>
+	<File name="textWidget.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="245" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="testWidget.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="193" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="city.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="797" topLine="21" />
+		</Cursor>
+	</File>
+	<File name="research.hpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="563" topLine="12" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

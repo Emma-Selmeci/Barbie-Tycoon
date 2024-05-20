@@ -25,3 +25,11 @@ A leadási határidő idejében feltöltött állapot ugyan működik, de hiány
 sajnos a tech tree második része,
 és a játék története sem bontakozik ki. Igyekszem befejezni még holnap a projektet,
 így játszhatóvá válik a nem félkész verzió is.
+
+Ui2.: Befejezem a projektet. A dolgok, amiket a leadás határideje és a befejezés között hozzáadtam:
+-Az épületek lehelyezése pénzbe kerül
+-Pár menüben megjelenő üzenet kijavítva
+-Átállítottam az árakat és kutatási költségeket, hogy ne csődöljön be a játékos
+-A "More Research" technológiától lefelé üzenetet állítottam be a technológiákhoz
+-A "More Research" technológiától lefelé játékbeli eseményeket csináltam
+-Cutscene-t raktam a játék közepére

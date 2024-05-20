@@ -41,6 +41,8 @@ public:
     static bool wasResearched(Research*);
     static bool wasResearched(ResearchEnum);
     static void checkUnlock();
+    static bool isItOurCurrentTech();
+    static void unlock();
     friend class TechTree;
     friend class GameManager;
 };

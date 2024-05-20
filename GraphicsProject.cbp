@@ -51,9 +51,13 @@
 			<Add library="dxguid" />
 			<Add directory="lib" />
 		</Linker>
+		<Unit filename="button.cpp" />
+		<Unit filename="button.hpp" />
 		<Unit filename="city.cpp" />
 		<Unit filename="city.hpp" />
 		<Unit filename="colors.hpp" />
+		<Unit filename="event.cpp" />
+		<Unit filename="event.hpp" />
 		<Unit filename="gameManager.cpp" />
 		<Unit filename="gameManager.hpp" />
 		<Unit filename="graphicsHelper.cpp" />
@@ -73,18 +77,34 @@
 		<Unit filename="messagePanel.hpp" />
 		<Unit filename="partsPanel.cpp" />
 		<Unit filename="partsPanel.hpp" />
+		<Unit filename="productionPanel.cpp" />
+		<Unit filename="productionPanel.hpp" />
+		<Unit filename="research.cpp" />
+		<Unit filename="research.hpp" />
+		<Unit filename="researchPanel.cpp" />
+		<Unit filename="researchPanel.hpp" />
 		<Unit filename="rightPanel.cpp" />
 		<Unit filename="rightPanel.hpp" />
+		<Unit filename="selector.cpp" />
+		<Unit filename="selector.hpp" />
+		<Unit filename="shipmentPanel.cpp" />
+		<Unit filename="shipmentPanel.hpp" />
 		<Unit filename="slider.cpp" />
 		<Unit filename="slider.hpp" />
 		<Unit filename="staticData.cpp" />
 		<Unit filename="staticData.hpp" />
 		<Unit filename="subPanel.cpp" />
 		<Unit filename="subPanel.hpp" />
+		<Unit filename="techTree.cpp" />
+		<Unit filename="techTree.hpp" />
 		<Unit filename="testWidget.cpp" />
 		<Unit filename="testWidget.hpp" />
+		<Unit filename="textWidget.cpp" />
+		<Unit filename="textWidget.hpp" />
 		<Unit filename="widget.cpp" />
 		<Unit filename="widget.hpp" />
+		<Unit filename="workerPanel.cpp" />
+		<Unit filename="workerPanel.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

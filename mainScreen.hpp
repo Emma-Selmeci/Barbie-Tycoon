@@ -18,11 +18,12 @@ class MainScreen {
     void drawCurrency();
     void loadMessages(event&);
     MapPanel mapPanel;
-
 public:
     MainScreen(event&);
     static bool loadFlag;
     const static int rightWidth;
+    void quickRepaint();
+    static MainScreen* object;
 };
 
 #endif // MAINSCREEN

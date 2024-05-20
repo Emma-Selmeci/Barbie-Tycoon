@@ -12,6 +12,10 @@ public:
     static int money;
     static int turnCounter;
     static int shipmentTime;
+    static int eventAccum;
+    static int transformationCoefficient;
+    static bool cutsceneFlag;
+    static bool transformationFlag;
     static void purchaseParts(City*, int);
     static void shipDolls(City* from, int to, int type, int amount);
     static void nextTurn();
@@ -25,6 +29,9 @@ public:
     static void decreaseShipmentTime();
     static void doMarketing(City*);
     static void buildFactory(City*);
+    static void buildLabAndPay(City*);
+    static void unlock();
+    static void startTransformation();
 };
 
 #endif // GAMEMANAGER
