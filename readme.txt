@@ -19,3 +19,9 @@ Amennyiben nehéznek bizonyulna a játék, 'c' gombbal lehet becsalni pénzt.
 
 Előfordul, hogy beakadnak gombok :/
 Ez szerintem az könyvtár okozta overhead hibája. Tessék kétszer megnyomni, másodjára működni szokott.
+
+Ui.: Sajnos reményeimmel ellentétben nem sikerült befejeznem a projektet.
+A leadási határidő idejében feltöltött állapot ugyan működik, de hiányzik belőle
+sajnos a tech tree második része,
+és a játék története sem bontakozik ki. Igyekszem befejezni még holnap a projektet,
+így játszhatóvá válik a nem félkész verzió is.
