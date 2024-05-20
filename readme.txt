@@ -33,3 +33,5 @@ Ui2.: Befejezem a projektet. A dolgok, amiket a leadás határideje és a befeje
 -A "More Research" technológiától lefelé üzenetet állítottam be a technológiákhoz
 -A "More Research" technológiától lefelé játékbeli eseményeket csináltam
 -Cutscene-t raktam a játék közepére
+-Zárójelenetet csináltam
+-C-vel tényleg lehet csalni

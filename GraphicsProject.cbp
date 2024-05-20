@@ -55,7 +55,10 @@
 		<Unit filename="button.hpp" />
 		<Unit filename="city.cpp" />
 		<Unit filename="city.hpp" />
+		<Unit filename="colors.cpp" />
 		<Unit filename="colors.hpp" />
+		<Unit filename="endCredits.cpp" />
+		<Unit filename="endCredits.hpp" />
 		<Unit filename="event.cpp" />
 		<Unit filename="event.hpp" />
 		<Unit filename="gameManager.cpp" />

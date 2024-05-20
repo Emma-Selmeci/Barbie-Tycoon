@@ -56,8 +56,10 @@ void RightPanel::setDim(Vec2 initialPos, Vec2 initialSize) {
 }
 
 void RightPanel::draw() { //This is so damn slow!!!!!!
-    drawRect(pos.x,pos.y,size.x,size.y,lightPink);
-    int cityNameSize = gout.twidth(loadedCity->name);
+    Color c{lightPink};
+    c = transformColor(c,false);
+    drawRect(pos.x,pos.y,size.x,size.y,c.r,c.g,c.b);
+    int cityNameSize = gout.twidth(loadedCity->getName());
     gout << color(255,255,255);
     for(int i = 0; i < 5; i++) {
             if(i == selectedMenu) continue;
@@ -65,7 +67,7 @@ void RightPanel::draw() { //This is so damn slow!!!!!!
             menuImages[i].draw();
     }
     gout << color(0,0,0);
-    gout << move_to(pos.x+size.x/2-cityNameSize/2,pos.y+10) << text(loadedCity->name);
+    gout << move_to(pos.x+size.x/2-cityNameSize/2,pos.y+10) << text(loadedCity->getName());
     drawRect(menuPlaces[selectedMenu],pos.y+iconyOffset,iconSize,iconSize);
     menuImages[selectedMenu].draw();
 

@@ -15,7 +15,6 @@ class Selector : public Widget {
     selectorCallback f;
     int value = 0;
     SelectorType type;
-    static std::string barbieTypes[5];
     void boundValue();
     int id;
 public:

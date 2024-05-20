@@ -8,6 +8,6 @@
 #define GUIvioletLight 255,180,241
 #define GUIvioletDark 186,85,211
 
-Color transformColor(Color c);
+Color transformColor(Color c, bool);
 
 #endif // COLORS

@@ -57,10 +57,14 @@ void ProductionPanel::selectorChange(int val, int id) {
 void ProductionPanel::refresh(City* city) {
     SubPanel::refresh(city);
     std::string t;
+
+    t = GameManager::transformationCoefficient > 16 ? "Choose which demon to summon with this altar!" : "Choose which doll to produce in this factory!";
+    chooseWhatToProduce.updateMessage(t);
+
     if(city->hasFactory) {
         if(city->hasStrike) {
             for(int i = 0; i < widgets.size(); i++) if(widgets[i] != &noFactory) widgets[i]->isActive = false; else widgets[i]->isActive = true;
-            t= "Workers are on strike! You cannot produce anything until they stop";
+            t = GameManager::transformationCoefficient > 6 ? "The slaves revolt! You cannot summon demons until they stop" : "Workers are on strike! You cannot produce anything until they stop";
             noFactory.updateMessage(t);
             }
         else if(city->producingDolls == 0) {
@@ -79,9 +83,9 @@ void ProductionPanel::refresh(City* city) {
             if(widgets[i] != &noFactory) widgets[i]->isActive = false; else widgets[i]->isActive = true;
         }
         if(Research::wasResearched(ResearchEnum::MOREFACTORIES)) {
-            t = "You can build a factory here for $2000";
+            t = GameManager::transformationCoefficient > 12 ? "You can raise an altar here for 2000 souls" : "You can build a factory here for $2000";
         } else {
-            t = "This city has no factory yet! You'll soon be able to build a factory here";
+            t = GameManager::transformationCoefficient > 12 ? "This city has no altar yet! You'll soon be able to raise an altar here" : "This city has no factory yet! You'll soon be able to build a factory here";
         }
 
         noFactory.updateMessage(t);
@@ -93,12 +97,12 @@ void ProductionPanel::refresh(City* city) {
         buildButton.isActive = false;
     }
 
-    t = std::to_string(StaticData::dollToParts(selectDoll.getValue())) + " parts to produce one doll. Choose the amount!";
+    t = GameManager::transformationCoefficient > 14 ? std::to_string(StaticData::dollToParts(selectDoll.getValue())) + " souls to summon one demon. Choose the amount!" : std::to_string(StaticData::dollToParts(selectDoll.getValue())) + " parts to produce one doll. Choose the amount!";
     dollPrice.updateMessage(t);
-    t = "There are " + std::to_string(city->storedParts) + " parts here";
+    t = GameManager::transformationCoefficient > 10 ? "There are " + std::to_string(city->storedParts) + " desecrated oils here" : "There are " + std::to_string(city->storedParts) + " parts here";
     partsHere.updateMessage(t);
     amountSlider.resetValues(0,city->storedParts/StaticData::dollToParts(selectDoll.getValue()));
-    t = "Our workers will produce " + std::to_string(city->producingDolls) + " " + StaticData::dollToName(city->producedType) + " this turn";
+    t = GameManager::transformationCoefficient > 14 ? "Our slaves will summon " + std::to_string(city->producingDolls) + " " + StaticData::dollToName(city->producedType) + " this turn" : "Our workers will produce " + std::to_string(city->producingDolls) + " " + StaticData::dollToName(city->producedType) + " this turn";
     orderedDolls.updateMessage(t);
 }
 

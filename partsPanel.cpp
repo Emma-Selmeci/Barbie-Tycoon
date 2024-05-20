@@ -60,8 +60,12 @@ void PartsPanel::refresh(City* city) {
     }
     partSlider.resetValues(0,GameManager::money/10);
     partSlider.forceValue(0);
-    std::string t = std::to_string(currentCity->storedParts) + " parts stored";
+    std::string t = GameManager::transformationCoefficient > 9 ? std::to_string(currentCity->storedParts) + " desecrated oils stored" : std::to_string(currentCity->storedParts) + " parts stored";
     storedParts.updateMessage(t);
-    t = std::to_string(currentCity->shippingParts) + " parts arrive next turn";
+    t = GameManager::transformationCoefficient > 9 ? std::to_string(currentCity->shippingParts) + " desecrated oils arrive next turn" : std::to_string(currentCity->shippingParts) + " parts arrive next turn";
     arrivingParts.updateMessage(t);
+    t = GameManager::transformationCoefficient > 9 ? "Desecrate oils! 10 souls each" : "Puchase parts! 10$ each";
+    purchasePlease.updateMessage(t);
+    t = GameManager::transformationCoefficient > 11 ? "You have no summoning altar in this city! Build one to desecrate oils" : "You have no factory in this city! Build a factory to order parts";
+    noFactoryButton.updateMessage(t);
 }

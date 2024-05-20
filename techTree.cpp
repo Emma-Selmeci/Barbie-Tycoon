@@ -1,5 +1,7 @@
 #include "techTree.hpp"
 
+#include <iostream>
+
 #include "staticData.hpp"
 #include "helpers.hpp"
 #include "colors.hpp"
@@ -54,9 +56,13 @@ void TechTree::drawTech(Research* tech, bool onLeft) {
     std::string t1 = tech->isLocked() ? "Research" : tech->name1;
     std::string t2 = tech->isLocked() ? "Locked" : tech->name2;
 
+    Color l1{GUIvioletDark}; Color l2{GUIvioletLight};
+    l1 = transformColor(l1,false);
+    l2 = transformColor(l2,false);
+
     if(tech->isResearched) {
 
-        onLeft ? drawSpecialRect(pos.x+40,pos.y+5,sub.x-10,sub.y,GUIvioletDark,GUIvioletLight) : drawSpecialRect(pos.x+40+sub.x,pos.y+5,sub.x-10,sub.y,GUIvioletDark,GUIvioletLight);
+        onLeft ? drawSpecialRect(pos.x+40,pos.y+5,sub.x-10,sub.y,l1.r,l1.g,l1.b,l2.r,l2.g,l2.b) : drawSpecialRect(pos.x+40+sub.x,pos.y+5,sub.x-10,sub.y,l1.r,l1.g,l1.b,l2.r,l2.g,l2.b);
         gout << color(0,0,0);
         onLeft ? gout << move_to(pos.x+42,pos.y+sub.y/2-10) : gout << move_to(pos.x+sub.x+42,pos.y+sub.y/2-10);
         gout << text(t1);
@@ -73,7 +79,9 @@ void TechTree::drawTech(Research* tech, bool onLeft) {
 }
 
 void TechTree::draw() {
-    gout << color(lightPink);
+    Color l{lightPink};
+    Color c = transformColor(l,false);
+    gout << color(c.r,c.g,c.b);
     drawRect(pos,size);
     StaticData::upArrow.draw({pos.x+3,pos.y+3});
     StaticData::downArrow.draw({pos.x+3, pos.y+size.y-32});
@@ -85,7 +93,7 @@ void TechTree::draw() {
     }
 
 
-    gout << move_to(pos.x+sub.x*2.5-gout.twidth("Researching:")/2+30,pos.y+2) << text("Researching:");
+    GameManager::transformationCoefficient > 4 ? gout << move_to(pos.x+sub.x*2.5-gout.twidth("Decyphering:")/2+30,pos.y+2) << text("Decyphering:") : gout << move_to(pos.x+sub.x*2.5-gout.twidth("Researching:")/2+30,pos.y+2) << text("Researching:");
     gout << move_to(pos.x+sub.x*2.5-gout.twidth(Research::currentTech->name1)/2+30,pos.y+19) << text(Research::currentTech->name1);
     gout << move_to(pos.x+sub.x*2.5-gout.twidth(Research::currentTech->name2)/2+30,pos.y+36) << text(Research::currentTech->name2);
     std::string t = std::to_string(Research::currentTech->researchAccum) + "/" + std::to_string(Research::currentTech->researchCost);

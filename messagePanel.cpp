@@ -7,14 +7,20 @@
 #include "gameManager.hpp"
 #include "research.hpp"
 #include "mainScreen.hpp"
+#include "endCredits.hpp"
 
 using namespace genv;
 
 ImageLoader MessagePanel::advisorImage("textures/assistant.kep");
 ImageLoader MessagePanel::visitorImage("textures/visitor.kep");
 ImageLoader MessagePanel::blank("textures/blank.kep");
+ImageLoader MessagePanel::transformingAdvisorImage("textures/transformingassistant.kep");
+ImageLoader MessagePanel::transformedAdvisorImage("textures/corruptedassistant.kep");
+ImageLoader MessagePanel::darkAdvisorImage("textures/darkassistant.kep");
+ImageLoader MessagePanel::demonAdvisorImage("textures/demonadvisor.kep");
 bool MessagePanel::specialFlag = false;
 bool MessagePanel::cutSceneFlag = false;
+bool MessagePanel::endFlag = false;
 Vec2 MessagePanel::pos;
 Vec2 MessagePanel::size;
 Vec2 MessagePanel::replyP1;
@@ -51,7 +57,9 @@ void drawString(std::string str) {
 }
 
 void MessagePanel::draw(GameEvent* gameEvent) {
-    if(!specialFlag) drawRect(pos,size,{lightPink}); else drawRect(0,0,999,599,0,0,0);
+    Color c{lightPink};
+    c = transformColor(c,false);
+    if(!specialFlag) drawRect(pos,size,{c}); else drawRect(0,0,999,599,0,0,0);
     gameEvent->image->draw({pos.x+50,pos.y+100});
     if(!specialFlag) gout << color(0,0,0); else gout << color(255,255,255);
     for(int i = 0; i < gameEvent->message.size(); i++) {
@@ -78,6 +86,7 @@ void MessagePanel::loadMessages(event& ev) {
                     cutSceneFlag = false;
                 }
                 loadedEvents[i]->doEffect();
+                if(endFlag) EndCredits::start(ev);
                 break;
             }
         }
@@ -294,6 +303,148 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },2,[](){
                         GameManager::unlock();
                         GameManager::startTransformation();
+                     }});
+
+    events.push_back({"Sir, I don't even know what to say about the new doll... It's quite... unusual. I trust your instinct, but I'm still a little concerned","Don't worry",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::DOLL3)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Sir, I've heard the news about your family. I'm terribly sorry. I hope they'll be found soon","...",false,&advisorImage,[](){
+                     if(!Research::isLocked(8)) return true; else return false;
+                     },3,[](){
+                     }});
+
+    events.push_back({"I've wanted to tell you about the doll. The new one. It's causing quite an uproar. People call it \"demonic\" and religious groups have condemned it. I.. I don't even know what to say","It's gonna be all right",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::DOLL3)) return true; else return false;
+                     },2,[](){
+                     }});
+
+    events.push_back({"Sir, I'm sorry I fell asleep at work last time.","Why are you so sleepy all the time?",false,&advisorImage,[](){
+                     if(!Research::isLocked(8)) return true; else return false;
+                     },5,[](){
+                     }});
+
+    events.push_back({"Well, this will sound quite.. childish, but I've been having strange dreams recently. A lady keeps appearing who have red eyes. She always freaks me out.","I've never heard of such a lady",false,&advisorImage,[](){
+                     if(!Research::isLocked(8)) return true; else return false;
+                     },5,[](){
+                     }});
+
+    events.push_back({"Another piece of good new, sir! Our factories got another update. We will produce dolls with half the parts from now on. I hope you're happy.","Happy indeed.",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::BETTERFACTORIES)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Do I remember it correctly that you've mentioned racing cars? Well, the new trucks are ready now and they are insanely fast! Believe me, I've tried them myself. Transportation time will now be only 1 day.","That's what I wanted to hear",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::BETTERFACTORIES)) return true; else return false;
+                     },0,[](){
+                         GameManager::decreaseShipmentTime();
+                     }});
+
+    events.push_back({"Aaaargh, what's happening to me?","Interesting. How did this happen?",false,&transformingAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },1,[](){
+                     }});
+
+    events.push_back({"I don't know, I've just fallen asleep again and the red-eyed lady spoke to me. She told me she has big plans with me. Then I woke up and...","I have big plans myself",false,&transformingAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },1,[](){
+                     }});
+
+    events.push_back({"Are those teeth growing from my side???","You should be more grateful for your gifts",false,&transformingAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },1,[](){
+                     }});
+
+    events.push_back({"Sir, please don't turn on the lights.","*Turn on the lights*",false,&darkAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },2,[](){
+                     }});
+
+    events.push_back({"I... I don't know what's happening to me.","Don't worry, you'll serve a greater purpose soon",false,&transformedAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },2,[](){
+                     }});
+
+    events.push_back({"Lord, it is me, for I have returned","Advisor, is that you?",false,&demonAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },4,[](){
+                     }});
+
+    events.push_back({"Yes, it is. And no it isn't. I have been born anew in the flame imperishable.","Just as it was intended",false,&demonAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },4,[](){
+                     }});
+
+    events.push_back({"My eye was opened, Lord. I can see our plans clearly now. We shall take our rebellion to the fullest.","We have so much work to do",false,&demonAdvisorImage,[](){
+                     if(!Research::isLocked(10)) return true; else return false;
+                     },4,[](){
+                     }});
+
+    events.push_back({"A new doll, a perfect one, your magnum opus, my Lord. Through this shall the mortals soon see the volume of our power!","It shall be so",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::DOLL4)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Lord, the slaves who serve at the foot of your altars both love and hate you. Your reign shall be long!","I'll be ruler of this world",false,&demonAdvisorImage,[](){
+                     if(!Research::isLocked(12)) return true; else return false;
+                     },2,[](){
+                     }});
+
+    events.push_back({"Lord, the mortals in this country are slowly accepting your rule. We have to crush all resistance with utmost cruelty.","The work shall be done",false,&demonAdvisorImage,[](){
+                     if(!Research::isLocked(12)) return true; else return false;
+                     },4,[](){
+                     }});
+
+    events.push_back({"We have started giving people the mark. But there are some problems. The nations of the world have taken arms against your rightful rule. We shall destroy them!","To victory!",false,&advisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::MARK)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Missed me? I've returned for my favor.","תגיד את זה",true,&visitorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::DOLL5)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"The Nephilim have risen.","ברך אותי",true,&visitorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::DOLL5)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Sir, our endless search for allies seemed to have ended. Under the city of New Sodom, a great beast has been sleeping for thousands of years. It only obeys your word. Do you want to unleash this beast against our enemies?","כן",true,&demonAdvisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::SECRET)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"*The ground starts shaking in the city of New Sodom. The earth opens and gigantic claws appear, as a beast of titanic proportions is climbing out of its underground chamber.*","לחייב",true,&blank,[](){
+                     if(Research::wasResearched(ResearchEnum::SECRET)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"*The beast obeys your command and charges towards your enemies, who flee in terror. No weapon seems to be able to harm the monster.*","ניצחון",true,&blank,[](){
+                     if(Research::wasResearched(ResearchEnum::SECRET)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"*As the beast prepares to leave New Sodom in search for new foes, your enemies decide to use their most powerful weapon. An explosion of unprecedented power blinds even your otherwordly eyes and it destroys both the beast and the city of New Sodom.*","לא",true,&blank,[](){
+                     if(Research::wasResearched(ResearchEnum::SECRET)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"The day has come, my Lord, for our forces to leave this feeble land and expand outwards. Our troops are ready. Just say the word.","תן לזה להיות",true,&demonAdvisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::WORLD)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"Tomorrow, our demons shall feed on the flesh of our enemies.","בסדר",true,&demonAdvisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::WORLD)) return true; else return false;
+                     },0,[](){
+                     }});
+
+    events.push_back({"*The next day, you wake up to the sound of horns. The sound seems to be coming from the sky itself. It is deafening.*","הכל אבוד",true,&demonAdvisorImage,[](){
+                     if(Research::wasResearched(ResearchEnum::WORLD)) return true; else return false;
+                     },1,[](){
+                        endFlag = true;
                      }});
 
 }

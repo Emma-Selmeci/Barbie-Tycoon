@@ -35,6 +35,9 @@ ShipmentPanel::ShipmentPanel() :
 void ShipmentPanel::refresh(City* city) {
     SubPanel::refresh(city);
     std::string t;
+
+    t = GameManager::transformationCoefficient > 15 ? "Choose where your minions will be deployed" : "Choose which type of doll to ship and to where!";
+
     t = "You have ";
     bool doWeHave = false;
     for(int i = 0; i < 5; i++) {
@@ -47,7 +50,7 @@ void ShipmentPanel::refresh(City* city) {
     if(city->shippedThisTurn) {
         t = "Shipment from this city confirmed.";
     }
-    if(!doWeHave) t = "You have no dolls stored here";
+    if(!doWeHave) t = GameManager::transformationCoefficient > 15 ? "You have no demons stationed here" : "You have no dolls stored here";
 
     dollsHere.updateMessage(t);
 
@@ -61,7 +64,8 @@ void ShipmentPanel::refresh(City* city) {
         }
     }
 
-    t = "These dolls take " + std::to_string(GameManager::shipmentTime) + " turns to arrive and cost " + std::to_string(StaticData::dollToPrice(selectDoll.getValue())) + "$ each";
+    t = GameManager::transformationCoefficient > 15 ? "Your forces take " + std::to_string(GameManager::shipmentTime) + " turns to arrive and harvest " + std::to_string(StaticData::dollToPrice(selectDoll.getValue())) + "souls each" : "These dolls take " + std::to_string(GameManager::shipmentTime) + " turns to arrive and cost " + std::to_string(StaticData::dollToPrice(selectDoll.getValue())) + "$ each";
+
     statusText.updateMessage(t);
 
     amountSlider.resetValues(0,city->storedDolls[selectDoll.getValue()]);

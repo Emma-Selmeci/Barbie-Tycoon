@@ -74,6 +74,8 @@ void GameManager::nextTurn() {
 
     if(transformationFlag) transformationCoefficient++;
 
+    MainScreen::object->quickRepaint();
+
     generateFans();
     generateStrike();
     RightPanel::refresh();

@@ -48,6 +48,9 @@ void MainScreen::eventLoop(event& ev) {
                 TechTree::update(ev);
                 RightPanel::update(ev);
             }
+            if(ev.type == ev_key && ev.button == 'c'){
+                GameManager::money+=10000;
+            }
     }
 }
 
@@ -59,6 +62,10 @@ void MainScreen::loadMessages(event& ev) {
 }
 
 void MainScreen::drawBorders(Color foreground, Color light, Color dark) { //Let's pretend we didn't see this
+    foreground = transformColor(foreground,true);
+    light = transformColor(light,true);
+    dark = transformColor(dark,true);
+
     drawRect({0,0},{screenWidth,screenHeight},{foreground});
 
     drawRect({0,0},{screenWidth,decorationSize},{light});
@@ -94,6 +101,7 @@ void MainScreen::drawBorders(Color foreground, Color light, Color dark) { //Let'
 }
 
 void MainScreen::drawBackground(Color color) {
+    color = transformColor(color,false);
     drawRect({borderSize,borderSize},{mapWidth,textPanelHeight},{color});
     drawRect({borderSize,borderSize*2+textPanelHeight},{mapWidth,mapHeight});
     drawRect({borderSize,borderSize*3+textPanelHeight+mapHeight},{mapWidth,remainder});
@@ -101,12 +109,20 @@ void MainScreen::drawBackground(Color color) {
 }
 
 void MainScreen::drawTitle() {
-    gout << move_to(borderSize+5,borderSize+8) << text("BARBIE TYCOON");
+    if(GameManager::transformationCoefficient > 20) {
+        gout << move_to(borderSize+5,borderSize+8) << text("REVELATIONS SIMULATOR");
+    } else {
+        gout << move_to(borderSize+5,borderSize+8) << text("BARBIE TYCOON");
+    }
+
 }
 
 void MainScreen::drawCurrency() {
-    drawRect({borderSize+5+mapWidth/2,borderSize},{mapWidth/2,textPanelHeight},{lightPink});
-    std::string moneyMessage = "You have " + std::to_string(GameManager::money) + "$";
+    Color c{lightPink};
+    c = transformColor(c,false);
+    drawRect({borderSize+5+mapWidth/2,borderSize},{mapWidth/2,textPanelHeight},{c});
+    std::string moneyMessage;
+    GameManager::transformationCoefficient > 5 ? moneyMessage = "You have " + std::to_string(GameManager::money) + " souls" : moneyMessage = "You have " + std::to_string(GameManager::money) + "$";
     gout << color(0,0,0) << move_to(borderSize+5+mapWidth/2,borderSize+8) << text(moneyMessage);
 }
 

@@ -12,6 +12,10 @@
 class MessagePanel {
     static ImageLoader advisorImage;
     static ImageLoader visitorImage;
+    static ImageLoader transformingAdvisorImage;
+    static ImageLoader transformedAdvisorImage;
+    static ImageLoader darkAdvisorImage;
+    static ImageLoader demonAdvisorImage;
     static ImageLoader blank;
     static Vec2 pos;
     static Vec2 size;
@@ -21,6 +25,7 @@ class MessagePanel {
     static std::vector<GameEvent*> loadedEvents;
     static void getMessages();
     static bool specialFlag;
+    static bool endFlag;
     static bool cutSceneFlag;
     static void playCutScene(event& ev);
 public:

@@ -48,7 +48,7 @@ Research Research::techList[15] = {
     Research("The perfect","doll",400),
     Research("Mark of","the beast",400),
     Research("Final doll","",600),
-    Research("Secret","",600),
+    Research("Secret","weapon",600),
     Research("World","conquest",1000)
 };
 
