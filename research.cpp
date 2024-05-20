@@ -35,21 +35,21 @@ void Research::unlock() {
 }
 
 Research Research::techList[15] = {
-    Research("Better","dolls",160),
-    Research("Shops","",160),
-    Research("Lvl 2","trucks",200),
-    Research("Marketing","",200),
-    Research("More","factories",240),
-    Research("More","research",240),
-    Research("Advanced","dolls",300),
-    Research("Barbie","shops",300),
-    Research("Efficient","factories",340),
-    Research("Lvl3","trucks",340),
-    Research("The perfect","doll",400),
-    Research("Mark of","the beast",400),
-    Research("Final doll","",600),
-    Research("Secret","weapon",600),
-    Research("World","conquest",1000)
+    Research("Better","dolls",120),
+    Research("Shops","",120),
+    Research("Lvl 2","trucks",140),
+    Research("Marketing","",140),
+    Research("More","factories",200),
+    Research("More","research",200),
+    Research("Advanced","dolls",240),
+    Research("Barbie","shops",240),
+    Research("Efficient","factories",260),
+    Research("Lvl3","trucks",260),
+    Research("The perfect","doll",300),
+    Research("Mark of","the beast",300),
+    Research("Final doll","",340),
+    Research("Secret","weapon",340),
+    Research("World","conquest",400)
 };
 
 Research* Research::currentTech = &techList[0];

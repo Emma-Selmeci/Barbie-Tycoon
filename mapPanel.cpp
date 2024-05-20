@@ -77,7 +77,7 @@ void MapPanel::draw() {
 void MapPanel::update(event& ev) {
     if(!(ev.type == ev_mouse && ev.button == 1)) return;
     for(int i = 0; i < 10; i++) { //I miss .length() for primitive arrays from Java
-        if(Research::wasResearched(ResearchEnum::SECRET)) continue;
+        if(Research::wasResearched(ResearchEnum::SECRET) && i == 9) continue;
         if(isInRect({ev.pos_x,ev.pos_y},{cityButtons[i].pos.x,cityButtons[i].pos.y},{cityButtons[i].pos.x+30,cityButtons[i].pos.y+30})) {
             RightPanel::setLoadedCity(i);
             return;

@@ -330,13 +330,13 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },5,[](){
                      }});
 
-    events.push_back({"Another piece of good new, sir! Our factories got another update. We will produce dolls with half the parts from now on. I hope you're happy.","Happy indeed.",false,&advisorImage,[](){
+    events.push_back({"Another piece of good news, sir! Our factories got another update. We will produce dolls with half the parts from now on. I hope you're happy.","Happy indeed.",false,&advisorImage,[](){
                      if(Research::wasResearched(ResearchEnum::BETTERFACTORIES)) return true; else return false;
                      },0,[](){
                      }});
 
     events.push_back({"Do I remember it correctly that you've mentioned racing cars? Well, the new trucks are ready now and they are insanely fast! Believe me, I've tried them myself. Transportation time will now be only 1 day.","That's what I wanted to hear",false,&advisorImage,[](){
-                     if(Research::wasResearched(ResearchEnum::BETTERFACTORIES)) return true; else return false;
+                     if(Research::wasResearched(ResearchEnum::TRANS3)) return true; else return false;
                      },0,[](){
                          GameManager::decreaseShipmentTime();
                      }});
@@ -361,7 +361,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },2,[](){
                      }});
 
-    events.push_back({"I... I don't know what's happening to me.","Don't worry, you'll serve a greater purpose soon",false,&transformedAdvisorImage,[](){
+    events.push_back({"I... I don't know what's happening to me.","You'll serve a greater purpose soon",false,&transformedAdvisorImage,[](){
                      if(!Research::isLocked(10)) return true; else return false;
                      },2,[](){
                      }});
@@ -381,7 +381,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },4,[](){
                      }});
 
-    events.push_back({"A new doll, a perfect one, your magnum opus, my Lord. Through this shall the mortals soon see the volume of our power!","It shall be so",false,&advisorImage,[](){
+    events.push_back({"A new doll, a perfect one, your magnum opus, my Lord. Through this shall the mortals soon see the volume of our power!","It shall be so",false,&demonAdvisorImage,[](){
                      if(Research::wasResearched(ResearchEnum::DOLL4)) return true; else return false;
                      },0,[](){
                      }});
@@ -396,7 +396,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },4,[](){
                      }});
 
-    events.push_back({"We have started giving people the mark. But there are some problems. The nations of the world have taken arms against your rightful rule. We shall destroy them!","To victory!",false,&advisorImage,[](){
+    events.push_back({"We have started giving people the mark. But there are some problems. The nations of the world have taken arms against your rightful rule. We shall destroy them!","To victory!",false,&demonAdvisorImage,[](){
                      if(Research::wasResearched(ResearchEnum::MARK)) return true; else return false;
                      },0,[](){
                      }});
@@ -406,7 +406,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },0,[](){
                      }});
 
-    events.push_back({"The Nephilim have risen.","ברך אותי",true,&visitorImage,[](){
+    events.push_back({"*The Nephilim have risen.*","ברך אותי",true,&blank,[](){
                      if(Research::wasResearched(ResearchEnum::DOLL5)) return true; else return false;
                      },0,[](){
                      }});
@@ -441,7 +441,7 @@ void MessagePanel::setPos(Vec2 initialPos, Vec2 initialSize) {
                      },0,[](){
                      }});
 
-    events.push_back({"*The next day, you wake up to the sound of horns. The sound seems to be coming from the sky itself. It is deafening.*","הכל אבוד",true,&demonAdvisorImage,[](){
+    events.push_back({"*The next day, you wake up to the sound of horns. The sound seems to be coming from the sky itself. It is deafening.*","הכל אבוד",true,&blank,[](){
                      if(Research::wasResearched(ResearchEnum::WORLD)) return true; else return false;
                      },1,[](){
                         endFlag = true;
