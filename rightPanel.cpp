@@ -12,8 +12,6 @@
 
 using namespace genv;
 
-#define ws << " " <<
-
 //I'm glad I've studied the order of initialization when I was studying Java or I'd be in big big trouble right now
 
 /*

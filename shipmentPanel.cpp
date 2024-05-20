@@ -1,7 +1,12 @@
 #include "shipmentPanel.hpp"
 
 #include "gameManager.hpp"
-#include "rightPanel.hpp"
+#include "mainScreen.hpp"
+#include "staticData.hpp"
+
+Selector* ShipmentPanel::selectDollP;
+Selector* ShipmentPanel::selectCityP;
+Slider* ShipmentPanel::amountSliderP;
 
 ShipmentPanel::ShipmentPanel() :
     dollsHere({pos.x+5,pos.y+5},"You have no dolls stored here"),
@@ -9,14 +14,22 @@ ShipmentPanel::ShipmentPanel() :
     selectDoll({pos.x,pos.y+230},SelectorType::DOLLSELECTOR,selectorCB,0),
     selectCity({pos.x,pos.y+270},SelectorType::CITYSELECTOR,selectorCB,0),
     amountSlider({pos.x,pos.y+320},0,0),
-    statusText({pos.x+5,pos.y+350},""),
-    confirmButton({pos.x+RightPanel/2,pos.y+400},,"Confirm shipment")
+    statusText({pos.x+5,pos.y+380},""),
+    confirmButton({pos.x+MainScreen::rightWidth/2,pos.y+450},0,buttonCB,"Confirm shipment")
 {
+    selectDollP = &selectDoll;
+    selectCityP = &selectCity;
+    amountSliderP = &amountSlider;
     addWidget(&dollsHere);
     addWidget(&whereToShip);
     addWidget(&selectDoll);
     addWidget(&selectCity);
     addWidget(&amountSlider);
+    addWidget(&statusText);
+    addWidget(&confirmButton);
+            for(int i = 0; i < 7; i++) {
+            if(widgets[i] != &dollsHere) widgets[i]->isActive = false; else widgets[i]->isActive = true;
+        }
 }
 
 void ShipmentPanel::refresh(City* city) {
@@ -31,16 +44,32 @@ void ShipmentPanel::refresh(City* city) {
         }
     }
     t+= "stored here";
+    if(city->shippedThisTurn) {
+        t = "Shipment from this city confirmed.";
+    }
     if(!doWeHave) t = "You have no dolls stored here";
+
     dollsHere.updateMessage(t);
 
+    if(city->shippedThisTurn || !doWeHave) {
+        for(int i = 0; i < 7; i++) {
+            if(widgets[i] != &dollsHere) widgets[i]->isActive = false; else widgets[i]->isActive = true;
+        }
+    } else {
+        for(int i = 0; i < 7; i++) {
+            widgets[i]->isActive = true;
+        }
+    }
 
+    t = "These dolls take " + std::to_string(GameManager::shipmentTime) + " turns to arrive and cost " + std::to_string(StaticData::dollToPrice(selectDoll.getValue())) + "$ each";
+    statusText.updateMessage(t);
 
+    amountSlider.resetValues(0,city->storedDolls[selectDoll.getValue()]);
 
 }
 
 void ShipmentPanel::buttonCB(int) {
-
+    if(amountSliderP->getValue() != 0) GameManager::shipDolls(currentCity,selectCityP->getValue(),selectDollP->getValue(),amountSliderP->getValue());
 }
 
 void ShipmentPanel::selectorCB(int i, int j) {

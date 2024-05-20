@@ -4,6 +4,8 @@
 
 ImageLoader StaticData::leftArrow("textures/leftArrow.kep");
 ImageLoader StaticData::rightArrow("textures/rightArrow.kep");
+ImageLoader StaticData::downArrow("textures/downArrow.kep");
+ImageLoader StaticData::upArrow("textures/upArrow.kep");
 
 int StaticData::dollToParts(int dollNum) {
     switch(dollNum) {
@@ -26,5 +28,17 @@ std::string StaticData::dollToName(int dollNum) {
         case 4 : {return "Nephilim";}
     }
     std::cout << "Error at dollToParts()!\n";
+    return 0;
+}
+
+int StaticData::dollToPrice(int dollNum) {
+    switch(dollNum) {
+        case 0 : {return 30;}
+        case 1 : {return 60;}
+        case 2 : {return 120;}
+        case 3 : {return 200;}
+        case 4 : {return 500;}
+    }
+    std::cout << "Error at dollToPrice()!\n";
     return 0;
 }

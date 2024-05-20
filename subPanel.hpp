@@ -11,7 +11,7 @@
 
 using namespace genv;
 
-class SubPanel {
+class SubPanel { //Where are doms when you need them?
 private:
     void checkAllWidgets(event&);
     void drawWidgets();

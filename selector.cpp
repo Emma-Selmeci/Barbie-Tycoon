@@ -1,10 +1,9 @@
 #include "selector.hpp"
 
-#include <iostream>
-
 #include "mainScreen.hpp"
 #include "staticData.hpp"
 #include "city.hpp"
+#include "research.hpp"
 
 std::string Selector::barbieTypes[] = {
     "Simple Doll",
@@ -41,6 +40,15 @@ bool Selector::check(event& ev) {
 void Selector::boundValue() {
     if(type == SelectorType::CITYSELECTOR) {
         if(value > 9) value = 9; else if(value < 0) value = 0;
+    } else {
+        if(value < 0) value = 0;
+        int max = 0;
+        if(Research::wasResearched(ResearchEnum::DOLL2)) max = 1;
+        if(Research::wasResearched(ResearchEnum::DOLL3)) max = 2;
+        if(Research::wasResearched(ResearchEnum::DOLL4)) max = 3;
+        if(Research::wasResearched(ResearchEnum::DOLL5)) max = 4;
+        if(value > max) value = max;
+
     }
     f(value,id);
 }

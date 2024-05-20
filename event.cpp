@@ -16,8 +16,12 @@ GameEvent::GameEvent(std::string str, std::string response, bool isHebrew, Image
 }
 
 bool GameEvent::check() {
+    if(wasSelected) return false;
     if(f()) {
-        if(turnDelay == 0) return true; else turnDelay--;
+        if(turnDelay == 0) {
+                wasSelected = true;
+                return true;
+        }else turnDelay--;
     }
     return false;
 }

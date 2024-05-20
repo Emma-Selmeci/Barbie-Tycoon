@@ -5,6 +5,7 @@
 #include "textWidget.hpp"
 #include "selector.hpp"
 #include "slider.hpp"
+#include "button.hpp"
 
 class ShipmentPanel : public SubPanel {
     TextWidget dollsHere;
@@ -14,7 +15,11 @@ class ShipmentPanel : public SubPanel {
     Slider amountSlider;
     TextWidget statusText;
     Button confirmButton;
+    static Selector* selectDollP;
+    static Selector* selectCityP;
+    static Slider* amountSliderP;
     static void selectorCB(int,int);
+    static void buttonCB(int);
 public:
     ShipmentPanel();
     void draw() override;

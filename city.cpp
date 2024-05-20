@@ -20,6 +20,10 @@ std::string City::cityToName(int i) {
     return "I think Python is an effective programming language"; //It would be really embarassing if this popped up during testing!
 }
 
+std::string City::getName() {
+    return name;
+}
+
 City::City(std::string cityName) : name(cityName) {
 
 }

@@ -16,6 +16,7 @@ class GameEvent {
 std::vector<std::string> message;
 std::string response;
 bool isHebrew; //This is where the fun begins
+bool wasSelected = false;
 ImageLoader* image;
 std::function<bool()> f;
 int turnDelay;

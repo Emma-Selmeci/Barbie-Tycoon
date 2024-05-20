@@ -1,7 +1,5 @@
 #include "textWidget.hpp"
 
-#include <iostream>
-
 #include "mainScreen.hpp"
 
 TextWidget::TextWidget(Vec2 pos, std::string str) : Widget(pos) {

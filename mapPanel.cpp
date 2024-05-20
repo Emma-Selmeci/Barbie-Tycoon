@@ -38,6 +38,8 @@ MapPanel::MapPanel(int x, int y) : hunMap("textures/hunmap.kep"), cityButtons({
 void MapPanel::draw() {
     hunMap.draw();
     for(CityButton& c : cityButtons) c.draw();
+    std::string t = "TURN " + std::to_string(GameManager::turnCounter);
+    gout << move_to(550,400) << text(t);
     gout << move_to(500,450) << box(150,30) << color(255,255,255) << move_to(507,457) << text("Next Turn"); //Sorry for the magic numbers :((
 
 }
@@ -52,6 +54,5 @@ void MapPanel::update(event& ev) {
     }
     if(isInRect(ev.pos_x,ev.pos_y,500,450,650,480)) {
             GameManager::nextTurn();
-            std::cout << "Next turn button pressed";
     }
 }

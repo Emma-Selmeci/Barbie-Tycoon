@@ -16,6 +16,7 @@ class ProductionPanel : public SubPanel {
     Selector selectDoll;
     TextWidget orderedDolls;
     Button produceButton;
+    Button buildButton;
     static Slider* amountSliderP;
     static Selector* selectDollP;
     static void buttonPressed(int);

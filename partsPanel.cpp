@@ -1,7 +1,5 @@
 #include "partsPanel.hpp"
 
-#include <iostream>
-
 #include "graphics.hpp"
 
 #include "testWidget.hpp"

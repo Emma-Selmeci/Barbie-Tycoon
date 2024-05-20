@@ -1,7 +1,5 @@
 #include "button.hpp"
 
-#include <iostream>
-
 int getLength(std::string str) {
     return gout.twidth(str);
 }

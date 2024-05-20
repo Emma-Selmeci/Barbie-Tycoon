@@ -9,32 +9,8 @@
 
 using namespace genv;
 
-class FunctorClass {
-    public:
-    std::function<bool()> _f;
-    FunctorClass(std::function<bool()> f) : _f(f) {}
-    bool getResult() {
-        return _f();
-    }
-};
-
-bool testMethod() {
-return true;
-}
-
 int main()
 {
-    std::vector<FunctorClass> functorclasses;
-    functorclasses.push_back({[](){
-                             std::cout << "Called\n";
-                             return true;
-                             }});
-    functorclasses[0].getResult();
-    std::vector<FunctorClass*> other;
-    other.push_back(&functorclasses[0]);
-    other[0]->getResult();
-    other.clear();
-    functorclasses[0].getResult();
 
 
 

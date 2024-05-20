@@ -1,7 +1,5 @@
 #include "subPanel.hpp"
 
-#include <iostream>
-
 //I'm sorry, I'm gonna just write the magic number in here :/
 Vec2 SubPanel::pos;
 City* SubPanel::currentCity = &City::cities[2];

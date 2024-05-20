@@ -1,6 +1,3 @@
-#include <iostream> //For debugging
-#define ws << " " <<
-
 #include "helpers.hpp"
 
 bool isInRect(Vec2 p0, Vec2 p1, Vec2 p2) {

@@ -1,9 +1,8 @@
-#include <iostream>
-
 #include "mainScreen.hpp"
 #include "rightPanel.hpp"
 #include "gameManager.hpp"
 #include "staticData.hpp"
+#include "techTree.hpp"
 
 const static int borderSize = 20, decorationSize = 2, screenWidth = 1000, screenHeight = 600, mapWidth = 650, mapHeight = 423, textPanelHeight = 30, remainder = screenHeight-4*borderSize-mapHeight-textPanelHeight, rightHeight = screenHeight-2*borderSize;
 const int MainScreen::rightWidth = screenWidth-3*borderSize-mapWidth;
@@ -19,11 +18,15 @@ MainScreen::MainScreen(event& ev) : mapPanel(borderSize,borderSize*2+textPanelHe
     drawCurrency();
 
     RightPanel::setDim({borderSize*2+mapWidth,borderSize},{rightWidth,rightHeight});
+    TechTree::setDim({borderSize,borderSize*3+textPanelHeight+mapHeight},{mapWidth,screenHeight-borderSize*4-textPanelHeight-mapHeight});
     MessagePanel::setPos({borderSize,borderSize*2+textPanelHeight},{mapWidth,mapHeight});
     StaticData::leftArrow.setTransparent(false);
     StaticData::rightArrow.setTransparent(false);
+    StaticData::upArrow.setTransparent(false);
+    StaticData::downArrow.setTransparent(false);
 
     RightPanel::draw();
+    TechTree::draw();
 
     gout << refresh;
 
@@ -40,6 +43,7 @@ void MainScreen::eventLoop(event& ev) {
                 gout << refresh;
             } else {
                 mapPanel.update(ev);
+                TechTree::update(ev);
                 RightPanel::update(ev);
             }
     }
@@ -103,3 +107,4 @@ void MainScreen::drawCurrency() {
     std::string moneyMessage = "You have " + std::to_string(GameManager::money) + "$";
     gout << color(0,0,0) << move_to(borderSize+5+mapWidth/2,borderSize+8) << text(moneyMessage);
 }
+
