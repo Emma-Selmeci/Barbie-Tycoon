@@ -9,7 +9,7 @@ WorkerPanel::WorkerPanel() :
         fanWidget({pos.x+5,pos.y+110},"Nobody wants your dolls in this city"),
         increasePayment({pos.x+MainScreen::rightWidth/2,pos.y+70},0,buttonCB,"Raise wages"),
         marketingWidget({pos.x+5,pos.y+200},"Pay 500$ to advetise your products for more demand"),
-        marketingButton({pos.x+MainScreen::rightWidth/2,pos.y+200},1,buttonCB,"Advertise")
+        marketingButton({pos.x+MainScreen::rightWidth/2,pos.y+270},1,buttonCB,"Advertise")
 {
     increasePayment.isActive = false;
     marketingButton.isActive = false;
@@ -53,7 +53,7 @@ void WorkerPanel::refresh(City* city) {
     marketingButton.isActive = false;
     marketingWidget.isActive = false;
 
-    t = GameManager::transformationCoefficient > 7 ? "Sacrifice 500 souls to gain more followers" : "Pay 500$ to advetise your products for more demand";
+    t = GameManager::transformationCoefficient > 7 ? "Sacrifice 500 souls to gain more followers" : "Pay 500$ to advertise your products for more demand";
     marketingWidget.updateMessage(t);
 
     if(Research::wasResearched(ResearchEnum::MARKETING)) {

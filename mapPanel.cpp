@@ -11,7 +11,7 @@ CityButton::CityButton(std::string name, Vec2 pos, int id) : name(name), pos(pos
 
 }
 void CityButton::draw() {
-        if(Research::wasResearched(ResearchEnum::SECRET)) return;
+        if(Research::wasResearched(ResearchEnum::SECRET) && id == 9) return;
         drawRect(pos,{30,30},{lightPink});
         GameManager::transformationCoefficient > 15 ? cityIconBad.draw({pos.x+1,pos.y+1}) : cityIcon.draw({pos.x+1,pos.y+1});
         gout << color(0,0,0) << move_to(stringPos.x,stringPos.y) << text(City::cityToName(id));
