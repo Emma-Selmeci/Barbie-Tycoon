@@ -16,6 +16,7 @@ public:
     static int transformationCoefficient;
     static bool cutsceneFlag;
     static bool transformationFlag;
+    static bool bankruptResearch;
     static void purchaseParts(City*, int);
     static void shipDolls(City* from, int to, int type, int amount);
     static void nextTurn();

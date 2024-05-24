@@ -37,10 +37,10 @@ std::string StaticData::dollToName(int dollNum) {
 
 int StaticData::dollToPrice(int dollNum) {
     switch(dollNum) {
-        case 0 : {return 35;}
-        case 1 : {return 70;}
-        case 2 : {return 140;}
-        case 3 : {return 260;}
+        case 0 : {return 45;}
+        case 1 : {return 110;}
+        case 2 : {return 200;}
+        case 3 : {return 315;}
         case 4 : {return 460;}
     }
     std::cout << "Error at dollToPrice()!\n";
