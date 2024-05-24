@@ -14,7 +14,7 @@ int GameManager::eventAccum = 0;
 int GameManager::transformationCoefficient = 0;
 bool GameManager::cutsceneFlag = false;
 bool GameManager::transformationFlag = false;
-bool GameManager::bankruptResearch = false;
+bool GameManager::bankruptResearch = true;
 
 void GameManager::purchaseParts(City* city, int amount) {
     money-=amount*10;
@@ -67,7 +67,7 @@ void GameManager::nextTurn() {
         }
         if(c.hasFactory) money-=c.wages;
         ship(c);
-        if((c.hasLab && money >=0 || bankruptResearch) && !(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100)) Research::currentTech->researchAccum+=20;
+        if(c.hasLab && (bankruptResearch || money >= 0) && !(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100)) Research::currentTech->researchAccum+=20;
     }
     if(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100) eventAccum++;
     if(eventAccum > 3) cutsceneFlag = true;
