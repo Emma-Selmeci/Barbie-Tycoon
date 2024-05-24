@@ -66,7 +66,7 @@ void GameManager::nextTurn() {
         }
         if(c.hasFactory) money-=c.wages;
         ship(c);
-        if(c.hasLab && !(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100)) Research::currentTech->researchAccum+=20;
+        if(c.hasLab && money >=0 && !(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100)) Research::currentTech->researchAccum+=20;
     }
     if(Research::isItOurCurrentTech() && Research::currentTech->researchAccum > 100) eventAccum++;
     if(eventAccum > 3) cutsceneFlag = true;
@@ -111,7 +111,7 @@ void GameManager::generateFans() {
     if(Research::wasResearched(ResearchEnum::DOLL5)) max = 4;
 
     for(int i = 0; i < turnCoefficient; i++) {
-        int delta = turnCounter/3 + rand() % turnCounter/10 * 3;
+        int delta = turnCounter/3 + rand() % turnCounter/5 * 2;
         int fanIndex = rand() % (max+1);
         City::cities[fanCities[i]].fans[fanIndex] += (delta + City::cities[fanCities[i]].marketingBonus);
     }
@@ -176,7 +176,7 @@ void GameManager::buildLab(City* city) {
 }
 
 void GameManager::buildShop(City* city) {
-    if(city->shopLevel = 0) {
+    if(city->shopLevel == 0) {
         city->shopLevel = 1;
         money-=500;
     } else {
